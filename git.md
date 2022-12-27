@@ -12,3 +12,10 @@ git은 분산버전관리시스템으로 코드의 버전을 관리하는 도구
 1. 작업을 하고
 2. 변경된 파일을 모아 (add)
 3. 버전으로 남긴다 (commit)
+
+## 기본 명령어 - add
+```
+$ git add <file>
+```
+- working directory상의 변경 내용을 staging area에 추가하기 위함
+    - untracked / modified 상태의 파일을 staged로 변경
