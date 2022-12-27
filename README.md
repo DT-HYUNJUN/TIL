@@ -1,4 +1,4 @@
-# 2주차_마크다운 및 Git 강의
+# 나만의 학습공간
 
 ## [Markdown](markdown.md)
 
