@@ -13,6 +13,11 @@ git은 분산버전관리시스템으로 코드의 버전을 관리하는 도구
 2. 변경된 파일을 모아 (add)
 3. 버전으로 남긴다 (commit)
 
+- Git 파일은 modified, staged, committed로 관리
+    - modified : 파일이 수정된 상태 (add 명령어를 통하여 staging area로) `1통`
+    - staged: 수정한 파일을 곧 커밋할 것이라고 표시한 상태 (commit 명령어로 저장소) `2통`
+    - committed : 커밋이 된 상태 `3통`
+
 ## 기본 명령어 - add
 ```
 $ git add <file>
@@ -27,3 +32,5 @@ $ git commit -m '<커밋메시지>'
 - staged 상태의 파일들을 커밋을 통해 버전으로 기록
 - 커밋 메시지는 변경 사항을 나타낼 수 있도록 명확하게 작성해야 함
 - 변경된 부분만 저장하기에 매우 크기가 작음
+
+##
