@@ -19,3 +19,11 @@ $ git add <file>
 ```
 - working directory상의 변경 내용을 staging area에 추가하기 위함
     - untracked / modified 상태의 파일을 staged로 변경
+
+## 기본 명령어 - commit
+```
+$ git commit -m '<커밋메시지>'
+```
+- staged 상태의 파일들을 커밋을 통해 버전으로 기록
+- 커밋 메시지는 변경 사항을 나타낼 수 있도록 명확하게 작성해야 함
+- 변경된 부분만 저장하기에 매우 크기가 작음
