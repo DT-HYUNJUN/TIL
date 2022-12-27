@@ -44,3 +44,14 @@ $ git log -1                # 로그를 하나만 출력
 $ git log --oneline         # 로그를 한 줄에 출력
 $ git log -1 --oneline      # 하나의 로그를 한 줄에 출력
 ```
+
+## 기본 명령어 - status
+```
+$ git status
+```
+- Git 저장소에 있는 파일의 상태를 확인하기 위하여 활용
+    - 파일의 상태를 알 수 있음
+        - Untracked files
+        - Changed not staged for commit
+        - Changes to be committed
+    - Nothing to commit, working tree clean
