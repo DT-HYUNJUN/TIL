@@ -40,7 +40,9 @@
  
 ![](../image/header_1.jpg)
 
-`![header](https://capsule-render.vercel.app/api?type=`타입`&color=`색상`&height=`높이`&section=header&text=`텍스트`&fontSize=`글씨크기`)`
+```markdown
+![header](https://capsule-render.vercel.app/api?type=타입&color=색상&height=높이&section=header&text=텍스트&fontSize=글씨크기)
+```
 
 타입 / 색상 / 높이 / 텍스트 / 글자크기를 취향대로 바꾸시면 됩니다.
 
@@ -95,4 +97,5 @@
 원하시는 이모티콘 검색하신 후
 
 ![](../image/emoji.jpg)
+
 copy 누르셔서 복사하신 후 붙여넣기 하시면 됩니다.
