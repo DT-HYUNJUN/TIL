@@ -100,7 +100,7 @@ $ git clone <원격저장소주소>
 - 협업을 하다보면 아래의 메시지를 확인하게됨
 <br>
 
-![push_conflict](image/push_conflict.jpg)
+![push_conflict](../image/push_conflict.jpg)
 - 이는 로컬과 원격 저장소의 커밋 이력이 다른 경우<br>
 
 해결법<br>
