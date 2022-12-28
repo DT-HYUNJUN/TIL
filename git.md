@@ -1,5 +1,5 @@
-[go to README](README.md)<br>
-[go to Markdown](markdown.md)
+## [go to README](README.md) <img src="https://img.shields.io/badge/README-018EF5?style=flat&logo=README&logoColor=white" /><br>
+## [go to Markdown](markdown.md) <img src="https://img.shields.io/badge/Markdown-000000?style=flat&logo=Markdown&logoColor=white" />
 # Git                      
 
 ## `git이란?`
