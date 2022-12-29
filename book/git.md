@@ -125,10 +125,8 @@ $ git clone <원격저장소주소>
 
 ## Branch
 - 독립적인 작업흐름을 만들고 관리
-<div align=center>
-    Branch 주요 명령어
-</div>
 
+### Branch 주요 명령어
 1. Branch 생성
 ```bash
 (master) $ git branch {name}
