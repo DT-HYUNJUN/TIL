@@ -12,13 +12,10 @@
 ## git이란?
 git은 분산버전관리시스템으로 코드의 버전을 관리하는 도구
 
----
-
 ## 기본 명령어 - init
 - 특정 폴더를 git 저장소를 만들어 git으로 관리
     - .git 폴더가 생성
     - git bash에서는 (master)라는 표기를 확인
----
 
 ## 기본흐름
 1. 작업을 하고
@@ -29,7 +26,6 @@ git은 분산버전관리시스템으로 코드의 버전을 관리하는 도구
     - modified : 파일이 수정된 상태 (add 명령어를 통하여 staging area로) `1통`
     - staged: 수정한 파일을 곧 커밋할 것이라고 표시한 상태 (commit 명령어로 저장소) `2통`
     - committed : 커밋이 된 상태 `3통`
----
 
 ## 기본 명령어 - add
 ```
@@ -37,7 +33,6 @@ $ git add <file>
 ```
 - working directory상의 변경 내용을 staging area에 추가하기 위함
     - untracked / modified 상태의 파일을 staged로 변경
----
 
 ## 기본 명령어 - commit
 ```
@@ -46,7 +41,6 @@ $ git commit -m '<커밋메시지>'
 - staged 상태의 파일들을 커밋을 통해 버전으로 기록
 - 커밋 메시지는 변경 사항을 나타낼 수 있도록 명확하게 작성해야 함
 - 변경된 부분만 저장하기에 매우 크기가 작음
----
 
 ## 기본 명령어 - log
 ```
@@ -59,7 +53,6 @@ $ git log -1                # 로그를 하나만 출력
 $ git log --oneline         # 로그를 한 줄에 출력
 $ git log -1 --oneline      # 하나의 로그를 한 줄에 출력
 ```
----
 
 ## 기본 명령어 - status
 ```
@@ -71,7 +64,6 @@ $ git status
         - Changed not staged for commit
         - Changes to be committed
     - Nothing to commit, working tree clean
----
 
 ## 원격 저장소 - 설정
 ```bash
@@ -83,7 +75,7 @@ $ git remote add origin URL
 $ git remote -v
 ```
 - 단축이름과 URL을 확인 가능
----
+
 ## 원격 저장소 - push / pull
 ```bash
 $ git push origin master
@@ -91,7 +83,6 @@ $ git pull origin master
 ```
 - 원격 저장소로 변경 사항(commit)을 올림(push)
     - 원격 저장소는 로컬의 파일/폴더가 아닌 **버전(commit)** 을 관리
----
 
 ## 원격 저장소 - clone
 ```bash
@@ -100,7 +91,6 @@ $ git clone <원격저장소주소>
 - 원격 저장소를 복제하여 가져옴
     - clone : 원격 저장소 복제
     - pull : 원격 저장소 커밋 가져오기
----
 
 ## Push 실패
 - 협업을 하다보면 아래의 메시지를 확인하게됨
@@ -114,7 +104,6 @@ $ git clone <원격저장소주소>
 2. 로컬에서 두 커밋을 병합(추가 커밋 발생)
     - <span style="color:#FF4848">동시에 같은 파일이 수정된 경우 merge conflict가 발생</span>
 3. 다시 GitHub으로 push
----
 
 ## gitignore
 - 프로젝트에서 버전 관리를 별도로 하지 않는 파일/폴더가 발생
@@ -177,11 +166,13 @@ $ git clone <원격저장소주소>
  - 기존 master 브랜치에 변경사항이 없어 단순히 앞으로 이동
 
  ## Shared Repository Model
-
- ### STEP 0 - 팀원 초대 및 저장소 clone
+ ```
  👑: repository owner (project manager)
 
  👨‍💻: contributor
+ ```
+
+ ### STEP 0 - 팀원 초대 및 저장소 clone
  1. 👑: 👨‍💻을 collaborator로 등록
  2. 👨‍💻 : clone 이후 작업 환경 설정을 마무리 한다
 
@@ -208,12 +199,13 @@ $ git clone <원격저장소주소>
     - 이후 1~3 과정을 반복
 
 ## Fork & Pull Request Model - Fork & Clone
-### STEP 0
-
+```
 👑 : repository owner (project manager)
 
 👨‍💻 : contributor
+```
 
+### STEP 0
 1. 👨‍💻 : Forking project repository
     - 원격 저장소를 fork 한다.
     - 내 저장소로 복제본을 가져옴으로써 로컬에서 작업 후 원격 저장소로 push 하는것
