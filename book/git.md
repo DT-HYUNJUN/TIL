@@ -114,8 +114,8 @@ $ git clone <원격저장소주소>
     - 특정 확장자 : *.jpg
     - 예외 처리 : !b.exe
 - <span style="color:#FF4848">주의! 이미 커밋된 파일은 반드시 삭제를 하여야 .gitignore로 적용</span>
-## <div align=center>어떤 파일을 관리?</div>
 
+### 어떤 파일을 관리?
 - [개발 언어](https://github.com/github/gitignore)
     - 예시) 파이썬: venv/, 자바스크립트: node_modules/
 - 개발 환경
