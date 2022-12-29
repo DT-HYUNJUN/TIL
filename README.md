@@ -1,7 +1,4 @@
-<div align=center>
-	<img src="https://capsule-render.vercel.app/api?type=cylinder&color=d1dfe8&height=160&section=header&text=Today%20I%20Learned&fontSize=70" />	
-</div>
-
+[![header](https://capsule-render.vercel.app/api?type=cylinder&color=d1dfe8&height=160&section=header&text=Today%20I%20Learned&fontSize=70)](https://github.com/DT-HYUNJUN/TIL)
 
 # [Markdown](book/markdown.md) <img src="https://img.shields.io/badge/Markdown-000000?style=flat&logo=Markdown&logoColor=white" />
 
