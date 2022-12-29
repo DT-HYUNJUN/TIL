@@ -5,6 +5,9 @@
 ## 목차
 1. [기본명령어](#기본-명령어---init)
 2. [원격저장소](#원격-저장소---설정)
+3. [Branch](#branch)
+4. [Shared Repository Model](#shared-repository-model)
+5. [Fork & Pull Request Model](#fork--pull-request-model---fork--clone)
 
 ## git이란?
 git은 분산버전관리시스템으로 코드의 버전을 관리하는 도구
