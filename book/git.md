@@ -1,6 +1,7 @@
-## [go to README](../README.md) <img src="https://img.shields.io/badge/README-018EF5?style=flat&logo=README&logoColor=white" /><br>
-## [go to Markdown](markdown.md) <img src="https://img.shields.io/badge/Markdown-000000?style=flat&logo=Markdown&logoColor=white" />
-## [go to Decoration](decorate.md) 🎨
+## [README](../README.md) <img src="https://img.shields.io/badge/README-018EF5?style=flat&logo=README&logoColor=white" /><br>
+## [Markdown](markdown.md) <img src="https://img.shields.io/badge/Markdown-000000?style=flat&logo=Markdown&logoColor=white" />
+## [Decoration](decorate.md) 🎨
+## [Career](book/career.md) 👨‍💻
 # Git
 ## 목차
 1. [기본명령어](#기본-명령어---init)

@@ -9,8 +9,6 @@
 4. [Shared Repository Model](book/git.md/#shared-repository-model)
 5. [Fork & Pull Request Model](book/git.md/#fork--pull-request-model---fork--clone)
 
+# [Decoration](book/decorate.md) 🎨
 
-
-# [Decoration](book/decorate.md) <font size="2em" color="gray"></font>🎨
-
-
+# [Career](book/career.md) 👨‍💻
