@@ -52,3 +52,87 @@ x, y = 1, 2
     - 길이제한이 없고, 대소문자 구별
     - 키워드(keywords)는 예약어(reserved words)로 사용할 수 없음
     - 내장함수나 모듈 등의 이름으로도 만들면 안됨
+
+## 자료형 (Data Type)
+
+### 수치형 (Numeric Type)
+ - int 정수
+    - long은 없고 모두 int로 표기
+    - 오버플로우가 발생하지 않음
+ - float 실수
+    - 정수가 아닌 모든 실수는 float
+ - complex 복소수
+    - 허수부를 j로 표현
+
+### 불린형 (Boolean Type)
+ - True / False 값을 가진 타입은 bool
+ - 비교 / 논리 연산을 수행함에 있어서 활용
+
+### 연산자 (Operator)
+ - 사칙연산 및 수식 계산
+
+| 연산자  | 내용  |
+|----|---|
+| + | 덧셈 |
+| -  | 뺄셈 |
+| *  | 곱셈 |
+| %  | 나머지  |
+| /  | 나눗셈  |
+| // | 몫  |
+| ** | 거듭제곱  |
+
+- 복합 연산자
+
+| 연산자  | 내용  |
+|----|---|
+| a += b | a = a + b |
+| a -= b  | a = a - b |
+| a *= b  | a = a * b |
+| a /= b  | a = a / b  |
+| a //= b  | a = a // b  |
+| a %= b | a = a % b  |
+| a **= b | a = a ** b  |
+
+- 비교 연산자
+
+| 연산자  | 내용  |
+|----|---|
+| <  | 미만  |
+| <= | 이하  |
+| >  | 초과  |
+| >= | 이상  |
+| == | 같음  |
+| != | 같지않음  |
+
+- 논리식을 판단하여 True와 False를 반환
+
+| 연산자  | 내용  |
+|----|---|
+| A and B | A와 B 모두 True시, True|
+| A or B | A와 B 모두 False시, False  |
+| Not | True를 False로, False를, True로 |
+
+- AND
+
+| AND  | 내용  |
+|----|---|
+| True and True  | True  |
+| True and False | False  |
+| False and True  | False  |
+| False and False  | False  |
+
+- OR
+
+| OR  | 내용  |
+|----|---|
+| True and True  | True  |
+| True and False | True  |
+| False and True  | True  |
+| False and False  | False  |
+
+- NOT
+
+| NOT  | 내용  |
+|----|---|
+| not True  | False  |
+| not False | True  |
