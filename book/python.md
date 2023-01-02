@@ -298,4 +298,17 @@ even_numbers = [2, 4, 6, 8]
 even_numbers.pop(0)
 even_numbers
 # => [4, 6, 8]
-````
+```
+
+## None
+ - 파이썬 자료형 중 하나
+ - 파이썬에서는 값이 없음을 표현하기 위해 None 타입이 존재함.
+ - 일반적으로 반한 값이 없는 함수에서 사용하기도 함.
+
+ ```python
+ print(type(None))
+ # <class 'NoneType'>
+ a = None
+ print(a)
+ # None
+ ```
