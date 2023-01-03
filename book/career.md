@@ -1,7 +1,7 @@
 ## [README](../README.md) <img src="https://img.shields.io/badge/README-018EF5?style=flat&logo=README&logoColor=white" /><br>
 ## [Markdown](markdown.md) <img src="https://img.shields.io/badge/Markdown-000000?style=flat&logo=Markdown&logoColor=white" />
 ## [Git](git.md) <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
-## [Decoration](decorate.md) 🎨
+## [Decoration](decorate.md) 🎨<br></br>
 
 # Career
 

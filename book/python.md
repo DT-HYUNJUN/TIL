@@ -300,7 +300,7 @@ even_numbers
 # => [4, 6, 8]
 ```
 
-## None
+###  None
  - 파이썬 자료형 중 하나
  - 파이썬에서는 값이 없음을 표현하기 위해 None 타입이 존재함.
  - 일반적으로 반한 값이 없는 함수에서 사용하기도 함.
@@ -312,3 +312,166 @@ even_numbers
  print(a)
  # None
  ```
+
+ ## String Formatting
+
+ ### String Interpolation
+ - 문자열을 변수를 활용하여 만드는 법
+   - f-string
+```python
+name = 'Kim'
+score = 4.5
+print(f'Hello, {name}! 성적은 {scroe}')
+# Hello, Kim! 성적은 4.5
+```
+
+## Typecasting
+
+### 자료형 변환
+- Python에서 데이터 형태는 서로 변환할 수 있음
+   - 암시적 (Implicit)
+      - 사용자가 의도하지 않고, Python 내부적으로 자료형을 변환 하는 경우
+   - 명시적 (Explicit)
+      - 사용자가 특정 함수를 활용하여 의도적으로 자료형을 변환 하는 경우
+
+### 암시적 (Implicit)
+- 사용자가 의도하지 않고, Python 내부적으로 자료형을 변환 하는 경우
+   - bool
+   - Numeric type (int, float, complex)
+```python
+True + 3
+# 4
+3 + 5.0
+# 8.0
+3 + 4j +5
+# (8+4j)
+```
+
+### 명시적 (Explicit)
+- int
+   - str*, float => int
+- float
+   - str*, int => float
+- str
+   - int, float, list, tuple, dict => str
+
+## 제어문
+- Python은 기본적으로 위에서부터 아래로 순차적으로 명령을 수행
+- 특정 상황에 따라 코드를 선택적으로 실행(분기/조건)하거나 계속하여 실행(반복)하는 제어가 필요
+- 순서도(flow chart)로 표현이 가능
+
+### 조건문
+- 조건문은 참/거짓을 판단할 수 있는 조건식과 함께 사용
+- expression에는 참/거짓에 대한 조건식
+```python
+if <expression>:
+   # Run this Code block
+else:
+   # Run this Code block
+```
+
+### 복수 조건문
+```python
+if <expression>:
+   # Code block
+elif <expression>:
+   # Code block
+elif <expression>:
+   # Code block
+else:
+   # Code block
+```
+
+### 중첩 조건문
+- 조건문은 다른 조건문에 중첩되어 사용될 수 있음
+```python
+if <expression>:
+   # Code block
+   if <expression>:
+      # Code block
+else:
+   # Code block
+```
+
+## Range
+
+### range(n=0, m s=1)
+- 숫자의 시퀀스를 나타내기 위해 사용
+   - 기본형: range(n)
+      - 0부터 n-1까지 증가
+   - 범위 지정: range(n, m)
+      - n부터 m-1까지 증가
+   범위 및 스텝 지정: range(n, m, s)
+      - n부터 m-1까지 s만큼 증가
+```python
+range(4)
+#0 1 2 3
+range(1, 4)
+# 1 2 3
+range(2, 8, 2)
+# 2 4 6
+```
+
+## 반복문
+- 특정 조건을 도달할 때까지, 계속 반복
+
+### 반복문 종류
+- while 문
+   - 종료조건에 해당하는 코드를 통해 반복문을 종료시켜야 함
+- for 문
+   - 반복가능한 객체를 모두 순회하면 종료
+- 반복 제어
+   - break, continue, for-else
+
+### while 문
+- 조건이 참인 경우 코드블록이 실행됨
+- 무한 루프를 하지 않도록 종료조건이 반드시 필요
+```python
+while <expression>:
+   # Code block
+```
+
+### for 문
+- 처음부터 끝까지 모두 순회하므로 별도의 종료조건이 필요하지 않음
+- 순회 가능한 객체: 컨테이너형
+```python
+for <변수명> in <iterable>:
+   # Code block
+```
+
+### 반복문 제어
+- break
+   - 반복문 종료
+- continue
+   - continue 이후 코드는 수행하지 않고, 다음 반복을 수행
+- for-else
+   - 끝까지 반복문을 실행한 이후에 else문 실행
+      - break를 통해 중간에 종료되는 경우 else문은 실행되지 않음
+```python
+# break
+n = 0
+while True:
+   if n == 3:
+      break
+   print(n)
+   n += 1
+# 0 1 2
+```
+```python
+# continue
+for i in r range(6):
+   if i % 2 == 0:
+      continue
+   print(i)
+# 1 3 5
+```
+```python
+# for-else
+for char in 'apple':
+   if char == 'b':
+      print('b!')
+      break
+else:
+   print('b가 없습니다.')
+# b가 없습니다.
+```
