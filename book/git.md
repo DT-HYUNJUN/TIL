@@ -1,5 +1,6 @@
 ## [README](../README.md) <img src="https://img.shields.io/badge/README-018EF5?style=flat&logo=README&logoColor=white" /><br>
-## [Markdown](markdown.md) <img src="https://img.shields.io/badge/Markdown-000000?style=flat&logo=Markdown&logoColor=white" />
+## [Markdown](markdown.md) <img src="https://img.shields.io/badge/MARKDOWN-000000?style=flat&logo=Markdown&logoColor=white" />
+## [Python](python.md) <img src="https://img.shields.io/badge/PYTHON-3776AB?style=flat&logo=python&logoColor=white" />
 ## [Decoration](decorate.md) 🎨
 ## [Career](book/career.md) 👨‍💻<br></br>
 # Git

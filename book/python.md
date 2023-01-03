@@ -1,3 +1,9 @@
+## [README](../README.md) <img src="https://img.shields.io/badge/README-018EF5?style=flat&logo=README&logoColor=white" /><br>
+## [Markdown](markdown.md) <img src="https://img.shields.io/badge/MARKDOWN-000000?style=flat&logo=Markdown&logoColor=white" />
+## [Git](git.md) <img src="https://img.shields.io/badge/GIT-F05032?style=flat&logo=Git&logoColor=white" />
+## [Decoration](decorate.md) 🎨
+## [Career](book/career.md) 👨‍💻<br></br>
+
 # Python
 
 ## Python이란?

@@ -1,7 +1,9 @@
 ## [README](../README.md) <img src="https://img.shields.io/badge/README-018EF5?style=flat&logo=README&logoColor=white" /><br>
-## [Markdown](markdown.md) <img src="https://img.shields.io/badge/Markdown-000000?style=flat&logo=Markdown&logoColor=white" />
-## [Git](git.md) <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
+## [Markdown](markdown.md) <img src="https://img.shields.io/badge/MARKDOWN-000000?style=flat&logo=Markdown&logoColor=white" />
+## [Git](git.md) <img src="https://img.shields.io/badge/GIT-F05032?style=flat&logo=Git&logoColor=white" />
+## [Python](python.md) <img src="https://img.shields.io/badge/PYTHON-3776AB?style=flat&logo=python&logoColor=white" />
 ## [Career](book/career.md) 👨‍💻<br></br>
+
 
 <div align=center>
 	<img src="https://capsule-render.vercel.app/api?type=waving&color=09edc4&height=250&section=header&text=README%20꾸미기!&fontSize=70" />	
