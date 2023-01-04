@@ -481,3 +481,108 @@ else:
    print('b가 없습니다.')
 # b가 없습니다.
 ```
+
+# 함수
+
+## 함수 기초
+
+### 함수의 정의
+- 함수(Function)
+   - 특정한 기능을 하는 코드의 조각(묶음)
+   - 특정 명령을 수행하는 코드를 매번 다시 작성하지 않고, 필요 시에만 호출하여 간편히 사용
+- 사용자 함수(Custom Function)
+   - 구현되어 있는 함수가 없는 경우, 직접 작성
+   ```python
+   def function_name
+      # Code block
+      return returning_value
+   ```
+- 내장함수(Built-in Function)
+   ```python
+   import math
+   values = []
+   mean = sum(values) / len(values)
+   ```
+### 함수 기본 구조
+```python
+def function_name(param):
+   # Code block
+   return returning_value
+```
+INPUT x(param) -> Scope{function body} -> OUTPUT f(x)
+
+## 내장 함수
+
+### print
+```python
+print(*objects, sep=' ', end='\n', file=None)
+```
+- **objects* : 여러 객체 input 가능
+- *sep=' '* : 객체를 ' '로 구분
+- *end='\n'* : 뒤에 '\n'를 붙임
+- *file=None* : None 타입
+
+### 자주 사용하는 함수
+- len(s)
+   - 객체의 `길이`를 반환. 인자는 시퀀스 또는 컬렉션
+- sum(iterable, start=0)
+   - start및 iterable의 항목들을 왼쪽에서 오른쪽으로 합하고 `합계`를 반환
+   - iterable 항목은 숫자
+- max(iterable)
+   - iterable에서 `최댓값`을 반환
+   - 여러 항목이 최댓값이면 처음 만난 항목을 반환
+- min(iterable)
+   - iterable에서 `최솟값`을 반환
+   - 여러 항목이 최솟값이면 처음 만난 항목을 반환
+### 수학 관련 함수
+- abs(x)
+   - 숫자의 `절댓값` 반환
+- divmod(a, b)
+   - 두 수를 받아 `몫과 나머지` 반환
+- pow(base, exp, mod=None)
+   - base의 exp `거듭제곱` 반환
+   - mod가 있는 경우 해당 값의 나머지 반환
+- round(number, ndigit=None)
+   - number를 소수점 다음에 ndigits 정밀도로 `반올림`한 값을 반환
+   - ndigits 가 생략되거나 None이면, 입력에 가장 가까운 정수 반환
+### 논리 관련 함수
+- all(iterable)
+   - iterable의 모든 요소가 `참이면`(또는 비어 있으면) `True` 반환
+- any(iterable)
+   - iterable의 요소중 `어느 하나라도 참이면` `True` 반환
+   - iterable이 `비어 있으면` `False` 반환
+### 진법 관련 함수
+- bin(x)
+   - 정수를 '0b' 접두사가 붙은 `2진수` 문자열로 반환
+- hex(x)
+   - 정수를 '0x 접두사가 붙은 `16진수` 문자열로 반환
+- oct(x)
+   - 정수를 '0o' 접두사가 붙은 `8진수` 문자열로 반환
+### 유니코드 관련 함수
+- ord(c)
+   - `유니코드 문자 c`에 대응되는 `유니코드 숫자` 반환
+- chr(i)
+   - `유니코드 정수 i`에 대응되는 `문자`를 반환
+### map
+- map(function, iterable)
+   - 순회 가능한 데이터구조(iterable)의 모든 요소에 함수(function)적용하고, 그 결과를 map object로 반환
+```python
+numbers = [1, 2, 3]
+result = map(str, numbers)
+print(result, type(result))
+# <map object at 0x10e2ca100> <class 'map'>
+
+list(result)
+# ['1', '2', '3']
+```
+
+- 알고리즘 문제 풀이시 input 값들을 숫자로 바로 활용하고 싶을 때
+```python
+n, m = map(int, input().split())
+# 3 5
+
+print(n, m)
+print(type(n), type(m))
+# 3 5
+# <class 'int'> <class 'int'>
+```
