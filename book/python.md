@@ -586,3 +586,246 @@ print(type(n), type(m))
 # 3 5
 # <class 'int'> <class 'int'>
 ```
+
+# 컬렉션
+
+## 딕셔너리
+- 키(key) : 값(value) 쌍으로 이뤄진 모음(collection)
+   - 키(key) - 불변 자료형
+   - 값(value) - 형태 무관
+- 키와 값은 `:` 로 구분 / 개별 요소는 `,`로 구분
+- 변경 가능하며(mutable), 반복 가능함(iterable)
+
+### 딕셔너리 생성
+- key는 변경 불가능한 데이터만 활용 가능
+   - string, integer, float, boolean, tuple, range
+- value는 모든 값으로 설정 가능
+```python
+Dict = {[1, 2, 3]: 'hi'}
+# TypeError: unhashable type: 'list'
+```
+
+### 딕셔너리 접근
+```python
+student = {
+   'name': '홍길동'
+   'age': 25
+}
+
+student['name']
+# 홍길동
+```
+
+### 딕셔너리 key, valye 추가 및 변경
+- 딕셔너리에 키와 값의 쌍을 추가할 수 있음
+- 이미 해당하는 키가 있다면 기존 값이 변경됨
+```python
+students = {'홍길동': 100, '김철수': 90}
+students['홍길동'] = 80
+# {'홍길동': 80, '김철수': 90}
+students['박영희'] = 95
+# {'홍길동': 80, '김철수': 90, '박영희': 95}
+```
+
+### 딕셔너리 key, value 삭제
+- 키를 삭제하고자 하면 .pop()으로 키를 전달
+```python
+students = {'홍길동': 100, '김철수': 90}
+students.pop('홍길동')
+# {'김철수': 90}
+```
+
+- 키가 없는 경우 KeyError 발생
+```python
+students = {'홍길동': 100, '김철수': 90}
+students.pop('Jane')
+# KeyError: 'Jane'
+```
+
+### 딕셔너리 순회
+- 딕셔너리는 기본적으로 key를 순회, key를 통해 값을 활용
+```python
+grades = {'John': 80, 'Eric': 90}
+for name in grades:
+   print(name)
+"""
+John
+Eric
+"""
+
+grades = {'John': 80, 'Eric': 90}
+for name in grades:
+   print(name, grades[name])
+"""
+John 80
+Eric 90
+"""
+```
+
+- 추가 메서드를 활용하여 순회할 수 있음
+   - keys() : Key로 구성된 결과
+   - values() : value로 구성된 결과
+   - items() : (key, value)의 튜플로 구성된 결과
+```python
+grades = {'John': 80, 'Eric': 90}
+print(grades.keys())
+print(grades.values())
+print(grades.items())
+"""
+dict_keys(['John', 'Eric'])
+dict_values([80, 90])
+dict_items([('John', 80), ('Eric', 90)])
+"""
+
+grades = {'John': 80, 'Eric': 90}
+for name, score in grades.items():
+   print(name, score)
+"""
+(John, 80)
+(Eric, 90)
+"""
+```
+
+# 모듈
+### module : 다양한 기능을 하나의 파일로
+### package : 다양한 파일을 하나의 폴더로
+### library : 다양한 패키지를 하나의 묶음으로
+### pip : 이 것을 관리하는 관리자
+
+## 모듈과 패키지
+- 모듈
+   - 특정 기능을 하는 코드를 파이썬 파일(.py) 단위로 작성
+- 패키지
+   - 특정 기능과 관련된 여러 모듈의 집합
+
+## Python 표쥰 라이브러리
+- Python에 기본적으로 설치된 모듈과 내장 함수
+
+### radnom
+- ramdom.randint(a, b)
+   - a <= N <= b 임의의 정수 N을 반환
+- random.choice(seq)
+   - 비어 있지 않은 시퀀스에서 임의의 요소를 반환
+   - 비어있으면 IndexError
+- random.shuffle(seq)
+   - 시퀀스를 제자리에서 섞음
+- random.sample(population, k)
+   - 무작위 비복원 추출한 결과인 k 길이의 리스트를 반환
+
+### datetime
+- datetime.date.today()
+   - 현재 지역 날짜를 반환
+- datetime.datetime.today()
+   - 현재 지역 datetime을 반환
+   - now()를 활용하면 타임존을 설정할 수 있음
+
+### os
+- os.listdir(path='.')
+   - path에 의해 주어진 디렉토리에 있는 항목들의 이름을 담고 있는 리스트 반환
+   - 리스트는 임의의 순서로 나열되며, 특수 항목은 포함하지 않음
+- os.mkdir(path)
+   - path라는 디렉토리를 생성
+- os.chdir(path)
+   - path를 변경
+
+## Python 패키지
+
+### pip
+- PyPI에 저장된 외부 패키지들을 설치하도록 도와주는 패키지 관리 시스템
+
+### pip 명령어
+- 패키지 설치
+   - pip install
+- 패키지 삭제
+   - pip uninstall
+- 패키지 목록 및 특정 패키지 정보
+   - pip list
+   - pip show SomePackage
+
+### 모듈과 패키지  활용
+```python
+import module
+from module import var, function, Class
+from module import *
+
+from package import module
+from package.module import var, function, Class
+```
+
+# 에러/예외 처리
+조건/반복, 함수 등 값이 변경되는 시점에서 주로 에러가 발생
+
+## 에러와 예외
+
+### 문법 에러 (Syntax Error)
+- Syntax Error가 발생하면, Python 프로그램은 실행이 되지 않음
+
+- EOL (End of Line)
+```python
+print('hello
+# SyntaxError: EOL
+```
+
+- EOF (End of File)
+```python
+print(
+# SyntaxError: EOF
+```
+
+- Invalid syntax
+```python
+while
+# SyntaxError: invalid syntax
+```
+
+- assign to literal
+```python
+5 = 3
+# SyntaxError: cannot assign to literal
+```
+
+### 예외 (Exception)
+- 실행 도중 예상치 못한 상황을 맞이하면, 프로그램 실행을 멈춤
+- 사용자 정의 예외를 만들어 관리할 수 있음
+
+- ZeroDivisionError
+```python
+10/0
+# ZeroDivisionError: division by zero
+```
+
+- NameError
+```python
+print(name_error)
+# NameError: name 'name_error' is not defined
+```
+
+- ModuleNotFoundError
+```python
+import nonamed
+# ModuleNotFoundError: No module named 'nonamed'
+```
+
+- ImportError
+```python
+from random import samp
+# ImportError: cannot import name 'samp' from 'random'
+```
+
+## 예외 처리
+- try / except 을 이용하여 예외 처리 가능
+- try 문
+   - 오류가 발생할 가능성이 있는 코드를 실행
+   - 예외가 발생되지 않으면, except 없이 실행 종료
+- except 문
+   - 예외가 발생하면, except 절이 실행
+   - 예외 상황을 처리하는 코드를 받아서 적절한 조치를 취함
+```python
+try:
+   num = input('숫자 입력 > ')
+   print(int(num))
+except:
+   print('숫자가 아닙니다')
+# ModuleNotFoundError: No module named 'nonamed'
+```
+
