@@ -828,4 +828,47 @@ except:
    print('숫자가 아닙니다')
 # ModuleNotFoundError: No module named 'nonamed'
 ```
+# 파일 입출력
 
+## 파일 입출력 활용
+
+### 파일 입력
+- open(file, mode='r', encoding=None)
+   - file : 파일명
+   - mode : 텍스트 모드
+   - encoding : 인코딩 방식 (UTF8)
+
+### 파일 활용
+- 파일 객체 활용
+```python
+f = open('workfile', 'w')
+```
+- with 키워드 활용
+```python
+with open('workfile') as f:
+   read_data = f.read()
+```
+- with 키워드를 사용 하면, f.close()를 호출하지 않아도 오류가 발생하지 않음.
+
+### JSON
+- JSON은 자바스크립트 객체 표기법으로 개발환경에서 많이 활용되는 데이터 양식으로 웹 어플리케이션에서 데이터를 전송할 때 일반적으로 사용
+- 문자 기반(텍스트) 데이터 포멧으로 다수의 프로그래밍 환경에서 쉽게 활용 가능
+   - 텍스트를 언어별 데이터 타입으로 변환
+   - 언어별 데이터 타입을 텍스트로 변환
+
+### JSON 활용
+- 객체(리스트, 딕셔너리 등)를 JSON으로 변환
+```python
+import json
+x = [1, 'simple', 'list']
+json.dumps(x)
+# '[1, 'simple', 'list']'
+```
+
+- JSON을 객체(리스트, 딕셔너리 등)로 변환
+```python
+x = json.load(f)
+```
+
+### pprint
+- 임의의 파이썬 데이터 구조를 예쁘게 인쇄 할 수 있는 기능을 제공
