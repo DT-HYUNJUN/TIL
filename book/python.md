@@ -872,3 +872,261 @@ x = json.load(f)
 
 ### pprint
 - 임의의 파이썬 데이터 구조를 예쁘게 인쇄 할 수 있는 기능을 제공
+
+# Tuple
+
+### 튜플의 정의
+- 불변한 값들의 나열
+- 순서를 가지며, 서로 다른 타입의 요소를 가질 수 있음
+- 변경 불가(immutable), 반복 가능함(iterable)
+- 항상 소괄호 형태로 정의하며, 요소는 콤마로 구분
+
+### 생성과 접근
+- 소괄호() 혹은 tuple()을 통해 생성
+- 값에 대한 접근은 리스트와 동일하게 인덱스로 접근
+   - 값 변경은 불가능하여 추가/삭제도 불가능함
+```python
+a = (1, 2, 3, 1)
+a[1]
+# 2
+
+a[1] = '3'
+# 값 변경은 불가능
+```
+
+# Set
+
+### 세트의 정의
+- 유일한 값들의 모음(Collection)
+- 순서가 없고 중복된 값이 없음
+   - 수학에서의 집합과 동일한 구조를 가지며, 집합 연산도 가능
+- 변경 가능(mutable), 반복 가능함(iterable)
+   - 단,  세트는 순서가 없어 반복의 결과가 정의한  순서와 다를 수 있음
+
+### 세트의 생성
+- 중괄호 {} 혹은 set()를 통해 생성
+   - 빈 Set를 만들기 위해서는 set()을 반드시 활용해야 함
+- 순서가 없어 별도의 값에 접근할 수 없음
+```python
+{1, 2, 3, 1, 2}
+# {1, 2, 3}
+
+blank_set = set()
+{'hi', 1, 2}
+# {1, 2, 'hi'}
+
+{1, 2, 3}[0]
+# 순서가 없어 인덱스 접근 불가
+```
+
+### 세트 추가/삭제
+- 추가는 .add()로 전달
+- 삭제는 .remove()로 전달
+```python
+numbers = {1, 2, 3}
+numbers.add(5)
+# {1, 2, 3, 5}
+
+numbers.add(1)
+# {1, 2, 3, 5}
+```
+
+```python
+numbers = {1, 2, 3}
+numbers.remove(1)
+# {2, 3}
+```
+
+# 메서드
+
+## 문자열 메서드
+
+### 문자열 탐색
+- .find(x)
+   - x의 첫 번째 위치를 반환. 없으면 -1 반환
+```python
+print('apple'.find('p'))
+# 1
+print('apple'.find('k'))
+# -1
+```
+
+- .index(x)
+   - x의 첫 번째 위치를 반환. 없으면 오류 발생
+```python
+print('apple'.index('p'))
+# 1
+'apple'.index('k')
+# 에러
+```
+
+### 문자열 변경
+- .replace(old, new[,count])
+   - 바꿀 대상 글자를 새로운 글자로 바꿔서 변환
+   - count를 지정하면, 해당 개수만큼만 시행
+```python
+print('coone'.replace('o', 'a'))
+# caane
+print('wooowoo'.replace('o', '!', 2))
+# w!!owoo
+```
+
+- .strip([chars])
+   - 특정한 문자들을 지정하면
+   - 양쪽을 제거(strip), 왼쪽을 제거(lstrip), 오른쪽 제거(rstrip)
+   - 문자열을 지정하지 않으면 공백을 제거
+```python
+print('     와우!\n'.strip())
+# '와우!'
+print('     와우!\n'.lstrip())
+# '와우!\n'
+print('     와우!\n'.rstrip())
+#'    와우!'
+print('안녕하세요????'.rstrip('?')))
+# 안녕하세요
+```
+
+## List
+
+### 리스트의 정의
+- 변경 가능한 값들의 나열된 자료형
+- 순서를 가지며, 서로 다른 타입의 요소를 가질 수 있음
+- 변경 가능하며(mutable), 반복 가능함(iterable)
+- 항상 대괄호 형태로 정의하며, 요소는 콤마로 구분
+
+### 값 추가/삭제
+- .append(x)
+   - 리스트에 값을 추가함
+```python
+num = [1, 2, 3]
+num.append(4)
+print(num)
+# [1, 2, 3, 4]
+```
+- .extend(iterable)
+   - 리스트에 iterable의 항목을 추가함
+```python
+num = [1, 2, 3]
+num.extend([4, 5])
+print(num)
+# [1, 2, 3, 4, 5]
+```
+
+- .insert(i, x)
+   - 정해진 위치 i에 값을 추가함
+```python
+num = [1, 2]
+num.insert(0, 0)
+print(num)
+# [0, 1, 2]
+
+num.insert(1000, 4)
+print(num)
+# [0, 1, 2, 4]
+```
+
+- .remove(x)
+   - 리스트에서 값이 x인 것 삭제
+```python
+num = [1, 2, 3, 'hi']
+print.remove('hi')
+print(num)
+# [1, 2, 3]
+```
+
+- .pop(i)
+   - 인덱스 i에 있는 값을 삭제, 그 항목을 반환
+   - i가 없으면 마지막 항목을 삭제, 반환
+```python
+num = ['hi', 1, 2, 3]
+pop_number = num.pop()
+print(pop_number)
+# 3
+print(num)
+# ['hi', 1, 2]
+```
+- .clear()
+   - 모든 항목을 삭제함
+```python
+num = [1, 2, 3]
+print(num.clear())
+# []
+```
+
+### 탐색 및 정렬
+- .index(x)
+   - x값을 찾아 해당 index 값을 반환
+```python
+num = [1, 2, 3]
+print(num.index(3))
+# 2
+```
+
+- .count(x)
+   - 원하는 값의 개수를 반환함
+```python
+num = [1, 2, 3, 1, 1,]
+print(num.count(1))
+# 3
+```
+
+- .sort()
+   - 원본 리스트를 정렬함. None 반환
+   - sorted()는 정렬된 리스트를 반환
+```python
+num = [3, 2, 5, 1]
+num.sort()
+# [1, 2, 3, 5]
+```
+
+- .reverse()
+   - 순서를 반대로 뒤집음 (정렬 X).
+```python
+num = [3, 2, 5, 1]
+result = num.reverse()
+print(num)
+# [1, 5, 2, 3]
+```
+
+## Set
+- 유일한 값들의 모음(Collection)
+- 순서가 없고 중복된 값이 없음
+- 변경 가능(mutable), 반복 가능(iterable)
+
+## Dictionary
+- 키 - 값 쌍으로 이뤄진 모음(Collection)
+   - key : 불변 자료형만 가능
+   - value : 어떠한 형태든 무관
+- 변경 가능(mutable), 반복 가능(iterable)
+
+### 조회
+- .get(key[,default])
+   - key를 통해 value를 가져옴
+   - keyError가 발생하지 않음
+   - default값을 변경하면 해당 key가 없을시 default값을 반환
+```python
+dic = {'apple': '사과', 'banana': '바나나'}
+print(dic.get('apple'))
+# 사과
+print(dic.get('pineapple', 0))
+# 0
+```
+
+### 추가/삭제
+- .pop(key[,default])
+   - key가 딕셔너리에 있으면 제거 후 반환
+```python
+dic = {'apple': '사과', 'banana': '바나나'}
+data = dic.pop('apple')
+# 사과
+data = dic.pop('pineapple', 0)
+# 0
+```
+
+- .update([other])
+   - 값을 제공하는 key, value로 덮어쓴다.
+```python
+dic = {'apple': '사', 'banana': '바나나'}
+dic.update(apple='사과')
+print(dic)
+# {'apple': '사과', 'banana': '바나나'}
