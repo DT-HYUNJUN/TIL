@@ -1130,3 +1130,92 @@ dic = {'apple': '사', 'banana': '바나나'}
 dic.update(apple='사과')
 print(dic)
 # {'apple': '사과', 'banana': '바나나'}
+```
+
+# 사용자 정의 함수
+
+## 함수 기초
+
+### 선언과 호출
+- def 키워드로 함수 선언
+- 들여쓰기를 통해 Function body를 작성
+- parameter를 념겨줄 수 있음
+- 동작 후에 return을 통해 결과값을 전달함
+
+## Output
+- 함수는 반드시 값을 하나만 return
+   - return이 두 개 이상일 경우 첫 번째 return을 반환
+   - 명시적인 return이 없으면 None 반환
+- return과 동시에 실행이 종료
+
+## Input
+- parameter : 함수를 실행할 때, 함수 내부에서 사용되는 식별자
+- argument : 함수를 호출 할 때, 넣어주는 값
+
+### argument
+- 함수 호출 시 함수의 parameter를 통해 전달되는 값
+   - 필수 argument : 반드시 전달되어야 하는 값
+   - 선택 argument : 값을 전달하지 않아도 되는 경우는 default 값 전달
+
+### keyword argument
+- 직접 변수의 이름으로 특정 argument를 전달할 수 있음
+- keyword argument 다음에 positional argument를  활용할 수 없음
+```python
+def add(x, y):
+   return x+y
+```
+
+### default argument
+- 기본값을 지정하여 함수 호출 시 argument 값을 설정하지 않도록 함
+```python
+def add(x, y=0):
+   return x+y
+```
+
+### 정해지지 않은 개수의 arguments
+- 여러 개의 positional argument를 하나의 필수 parameter로 받아서 사용
+- argument들은 튜플로 묶여 처리되며, parameter에 * 를 붙여 표현
+```python
+def add(*args):
+   return sum(args)
+```
+
+### 정해지지 않은 개수의 keyword arguments
+- 임의의 개수 argument를 keyword argument로 호출될 수 있도록 지정
+- argument들은 dictionary로 묶여 처리되며, parameter에 ** 를 붙여 표현
+```python
+def family(**kwargs):
+   for key, value in kwargs:
+      print(key, : value)
+```
+
+## 함수의 범위
+
+### scope
+- 함수는 코드 내부에 local scope를 생성하며 그 외의 공간인 glbal scope로 구분
+- scope
+   - global scope : 코드 어디에서든 참조할 수 있는 공간
+   - local scope : 함수가 만든 scope. 함수 내부에서만 참조 가능
+- variable
+   - global variable : global scope에 정의된 변수
+   - local variable : local scope에 정의된 변수
+
+### 객체 lifecycle
+- 객체는 각자의 lifecycle 존재
+   - built-in scope : Python이 실행된 이후부터 영원히 유지
+   - global scope : 모듈이 호출된 시점 이후 혹은 interpreter가 끝날 때까지 유지
+   - local scope : 함수가 호출될 때 생성되고, 함수가 종료될 때까지 유지
+
+### 이름 검색 규칙
+- Python에서  사용되는 식별자들은 namespace에 저장되어 있음
+- 아래와 같은 순서로 이름을 찾아가며, LEGB Rule이라고 부름
+   - Local scope : 함수
+   - Enclosed scope : 특정 함수의 상위 함수
+   - Global scope : 함수 밖의 변수, Import 모듈
+   - Built-in scope : Python 안에 내장되어 있는 함수 또는 속성
+- 즉, 함수 내에서는 바깥 scope의 변수에 접근 가능하나 수정불가
+
+### global 문
+- 현재 코드 블록 전체에 적용되며, 나열된 식별자가 global variable임을 나타냄
+   - global에 나열된 이름은 같은 코드 블록에서 global 앞에 등장할 수 없음
+   - global에 나열된 이름은 parameter, for 루프 대상, 클래스/함수 정의 등으로 정의되지 않음
