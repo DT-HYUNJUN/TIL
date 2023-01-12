@@ -1303,3 +1303,88 @@ rec.area()
 ### 매직 메소드
 - __가 있는 메소드는 특수한 동작을 위해 만들어진 메소드
 - 특정 상황에 자동으로 불리는 메소드
+
+## 상속
+
+### 클래스 상속
+- 상속
+   - 두 클래스 사이 부모 - 자식 관계를 정립
+- 부모에 정의된 속성이나 메서드를 활용하거나 오버라이딩을 활용
+
+### 다중 상속
+- Python은 두 개 이상의 클래스를 상속 받을 수 있음
+- 상속 받은 모든 클래스의 요소를 활용 가능함
+- 중복된 속성이나 메서드가 있는 경우 상속 순서에 의해 결정됨
+
+# Python 응용/심회
+
+## 추가 문법
+
+### 조건표현식 (Conditional Expression)
+- 조건 표현식을 일반적으로 조건에 따라 값을 할당 할 때 활용
+```python
+<true인 경우 값> if <expression> else <false인 경우 값>
+
+value = num if num >= 0 else -num
+```
+
+### enumerate 순회
+- 인덱스와 객체를 쌍으로 담은 enumerate 객체 반환
+   - (index, value) 형태의 tuple 반환
+```python
+members = ['민수', '영희', '철수']
+for i in range(len(members)):
+   print(f'{i} {members[i]}')
+
+for i, member in enumerate(members):
+   print(i, member)
+```
+
+### list comprehension
+- 표현식과 제어문을 통해 특정한 값을 가진 리스트를 간결하게 생성하는 방법
+```python
+[<expression> for <변수> in <iterable>]
+[<expression> for <변수> in <iterable> if <조건식>]
+
+[number**3 for number in range(1, 4)]
+```
+
+### dictionary comprehension
+```python
+{key: value for <변수> in <iterable>}{key: value for <변수> in <iterable> if <조건식>}
+
+{number: number**3 for number in range(1, 4)}
+```
+
+### lamda
+- 람다함수
+   - 표현식을 계산한 결과값을 반환하는 함수로, 익명함수라고도 불림
+- 특징
+   - return문을 가질 수 없음
+   - 간편 조건문 외 조건문이나 반복문을 가질 수 없음
+- 장점
+   - 함수를 정의해서 사용하는 것보다 간결하게 사용 가능
+   - def를 사용할 수 없는 곳에서도 사용 가능
+```python
+print(list(map(lambda n: n//2, numbers1)))
+```
+
+### type annotation
+- 각 변수/함수마다 Type에 대한 설명을 덧붙임
+```python
+hello: str = 'hello world!'
+
+def add(x: int, y: int) -> int:
+   return x + y
+
+result: int = add(7, 4)
+```
+
+### positional-only parameters
+- 함수를 정의할 때 어떻게 호출해야 하는지를 함께 지정
+   - a, b는 위치만
+   - c, d는 위치 및 키워드 모두
+   - e, f는 키워드만
+```python
+def f(a, b, /, c, d, *, e, f):
+   print(a, b, c, d, e, f)
