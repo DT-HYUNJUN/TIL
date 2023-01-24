@@ -2,7 +2,7 @@
 ## [Markdown](markdown.md) <img src="https://img.shields.io/badge/MARKDOWN-000000?style=flat&logo=Markdown&logoColor=white" />
 ## [Python](python.md) <img src="https://img.shields.io/badge/PYTHON-3776AB?style=flat&logo=python&logoColor=white" />
 ## [Decoration](decorate.md) 🎨
-## [Career](book/career.md) 👨‍💻<br></br>
+## [Career](career.md) 👨‍💻<br></br>
 # Git
 ## 목차
 1. [기본명령어](#기본-명령어---init)

@@ -2,7 +2,7 @@
 ## [Markdown](markdown.md) <img src="https://img.shields.io/badge/MARKDOWN-000000?style=flat&logo=Markdown&logoColor=white" />
 ## [Git](git.md) <img src="https://img.shields.io/badge/GIT-F05032?style=flat&logo=Git&logoColor=white" />
 ## [Decoration](decorate.md) 🎨
-## [Career](book/career.md) 👨‍💻<br></br>
+## [Career](career.md) 👨‍💻<br></br>
 
 # Python
 
