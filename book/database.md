@@ -110,6 +110,5 @@ WHERE은 어떤 행들이 수정되어야 하는가를 결정해준다. 여기�
 과감하게 DROP 명령을 통해 테이블을 제거해준다.
 
 ```SQL
-DROP
-TABLE Students
+DROP TABLE Students
 ```
