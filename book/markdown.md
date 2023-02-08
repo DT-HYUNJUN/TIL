@@ -2,7 +2,8 @@
 ## [Git](git.md) <img src="https://img.shields.io/badge/GIT-F05032?style=flat&logo=Git&logoColor=white" />
 ## [Python](python.md) <img src="https://img.shields.io/badge/PYTHON-3776AB?style=flat&logo=python&logoColor=white" />
 ## [Decoration](decorate.md) 🎨
-## [Career](career.md) 👨‍💻<br></br>
+## [Career](career.md) 👨‍💻
+## [Database](database.md) 💾 <br></br>
 
 # 마크다운 문법 정리
 
