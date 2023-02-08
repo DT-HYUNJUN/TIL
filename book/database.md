@@ -6,6 +6,34 @@
 ## [Career](career.md) 👨‍💻<br></br>
 
 
+# DB 용어 정리
+- Table
+- Field
+- Record
+- Database
+- Primary Key
+- Foreign Key
+
+## Table
+Relation으로도 말하며, 관계형 DB에서 정보를 구분하여 저장하는 기본 단위를 말한다.
+
+## Field
+Attribute으로도 말하며, 테이블에서 Column (열)에 해당하는 가장 작은 단위의 데이터를 말한다. Relation에서의 Attribute의 개수를 Degree라고 한다.
+
+## Record
+Tuple 이라고도 하며 테이블에서 행을 의미한다. Tuple들의 집합이므로, 중복된 레코드는 존재하지 않는다. 한 Relation에서의 Tuple의 개수를 Cardinality라고 한다.
+
+## Database
+Database는 일반적으로 하나 이상의 서로 관련이 되는 조직체들의 활동을 기술하는 데이터들의 모임이다.
+
+## Primary Key
+DB 에서의 Key는 주어진 집합에 속하는 한 개체를 유일하게 식별하는 값을 갖는 최소개의 attributes로 이루어진 집합을 말한다. 이 때의 key 들을 후보키라고 말하는데 그들 중 하나를 Primary Key로 지정한다.
+
+
+## Foreign Key
+FK는 Relation간의 PK를 참조하는 테이블 간의 관계를 나타내기 위해 사용된다.
+
+예를 들어 학생들의 정보가 담겨있는 Students 릴레이션과, 학생들이 과목을 등록하는 Enrolled 릴레이션이 있다고 하자. 실제로 존재하는 학생들만 과목을 등록할 수 있다는 것을 보장하기 위해, Enrolled 의 인스턴스의 studid 필드에 오는 값은 Students의 sid 필드에 있어야 한다. 이 때 Enrolled의 studid를 외래 키(Foreign Key) 라고 한다.
 
 # MySQL 접속 방법
 
