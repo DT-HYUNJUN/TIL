@@ -11,3 +11,5 @@
 # [Career](book/career.md) 👨‍💻
 
 # [Database](book/database.md) 💾
+
+# [Diary](diary/2023.md) 📔
