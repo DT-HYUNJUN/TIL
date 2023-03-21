@@ -79,17 +79,32 @@ Django를 설치해주는데, `3.2.18`버전으로 install 한다.
 
 프로젝트를 Github에 올릴 때 필요 없는 파일이나 디렉토리까지 올릴 필요가 없기에 .gitignore를 사용해준다.
 
+<br>
+
 ## 6. git 저장소 생성
 
 > `(venv) $ git init`
 
 위 명령어를 실행 후 `repository`에 `remote`해준다.
 
+<br>
+
 ## 7. Django 프로젝트 생성
 
 > `(venv) $ django-admin startproject <firstpjt> .`
 
 `django-admin`명렁어는 Django 프레임워크에서 제공하는 명령어다. 새 프로젝트를 생성하거나, 애플리케이션, 데이터베이스 등을 관리하는 작업을 수행한다.
+
+<br>
+
+## 8. Django 앱 생성
+
+> `(venv) $ python manage.py start <app_name>`
+
+Django의 프로젝트를 생성했다면 그 다음엔 앱을 생성해준다.
+
+
+<br>
 
 ## 8. 서버 실행
 
