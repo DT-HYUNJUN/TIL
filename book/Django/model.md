@@ -114,3 +114,98 @@ admin.site.register(Article)
 기존에 models.py에서 생성한 Article을 관리자 페이지에 등록해준다.
 
 이후에는 관리자 페이지에서 Article 모델을 확인할 수 있으며, CRUD도 테스트할 수 있게 된다.
+
+# ORM
+
+ORM (Object-Relational-Mapping)은 객체 지향 프로그래밍 언어를 사용하여 호환되지 않는 유형의 시스템 간에 데이터를 변환하는 프로그래밍 기술을 말한다.
+
+## QuerySet API
+
+QuerySet API는 ORM에서 데이터를 검색, 필터링, 정렬 및 그룹화 하는데 사용하는 도구다.
+
+쉽게 말해, API를 사용하여 SQL이 아닌 Python코드로 데이터를 처리한다.
+
+## 라이브러리 설치
+
+Django 환경 안에서 실행되는 python shell을 통해 QuerySet API를 입력하는데 필요한 라이브러리를 설치한다.
+
+```bash
+$ pip install ipython
+$ pip install django-extensions
+```
+
+## ORM CREATE
+
+데이터 객체를 만드는 방법에는 세 가지가 있다.
+
+(models.py에는 Article() 클래스가 있다.)
+
+### 첫 번째
+
+Article 클래스로부터 article 인스턴스를 생성한 후 각 필드에 값을 할당한다.
+
+```shell
+>>> article = Article()
+>>> article.title = 'title'
+>>> article.content = 'content'
+>>> article.save()
+```
+
+### 두 번째
+
+article 인스턴스를 생성할 때, 값을 할당한다.
+
+```shell
+>>> article = Article(title='title', content='content')
+>>> article.save()
+```
+
+### 세 번째
+
+QuerySet API인 create() 메서드를 사용한다.
+
+```shell
+>>> Article.objects.create(title='title',content='content')
+```
+
+## ORM READ
+
+READ에는 단일 데이터를 조회하는 방법과 여러 데이터를 조회하는 방법이 있다.
+
+### 전체 데이터 조회
+
+```shell
+>>> Article.objects.all()
+```
+
+### 단일 데이터 조회
+
+get() 메서드를 사용한다.
+
+객체를 찾을 수 없으면 DoesNotExist 예외가 발생하고,
+
+둘 이상의 객체를 찾으면 MultipleObjectsReturned 예외가 발생한다.
+
+그렇기에 pk와 같이 고유성을 보장하는 조회에서 사용해야 한다.
+
+```shell
+>>> Article.objects.get(pk=1)
+>>> Article.objects.get(title='title')
+```
+
+### 특정 데이터 조회
+
+filter() 메서드를 사용한다.
+
+해당 조건에 만족하는 데이터를 배열의 형태로 반환한다.
+
+```shell
+>>> Article.objects.filter(content='content')
+>>> Article.objects.filter(title='a')
+```
+
+### Field lookups
+
+특정 레코드를 조회할 때 조건을 설정하는 방법이다.
+
+[Django QuerySet API ](https://docs.djangoproject.com/en/3.2/ref/models/querysets/#field-lookups)
