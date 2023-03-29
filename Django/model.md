@@ -209,3 +209,6 @@ filter() 메서드를 사용한다.
 특정 레코드를 조회할 때 조건을 설정하는 방법이다.
 
 [Django QuerySet API ](https://docs.djangoproject.com/en/3.2/ref/models/querysets/#field-lookups)
+
+## ORM Update
+
