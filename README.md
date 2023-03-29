@@ -1,15 +1,17 @@
-[![header](https://capsule-render.vercel.app/api?type=cylinder&color=d1dfe8&height=160&section=header&text=Today%20I%20Learned&fontSize=70)](https://github.com/DT-HYUNJUN/TIL)
+# Today I Learned
+> til
 
-# [Markdown](book/markdown.md) <img src="https://img.shields.io/badge/MARKDOWN-000000?style=flat&logo=Markdown&logoColor=white" />
+## Contents
+- [Markdown](./Markdown/markdown.md)
 
-# [Git](book/git.md) <img src="https://img.shields.io/badge/GIT-F05032?style=flat&logo=Git&logoColor=white" />
+- [Git](./Git/git.md)
 
-# [Python](book/python.md) <img src="https://img.shields.io/badge/PYTHON-3776AB?style=flat&logo=python&logoColor=white" />
+- [Python](./Python/python.md)
 
-# [Decoration](book/decorate.md) 🎨
+- [Database](./CS/Database/database.md)
 
-# [Career](book/career.md) 👨‍💻
+- [Network](./CS/Network/server.md)
 
-# [Database](book/database.md) 💾
+- [Django](./Django/README.md)
 
-# [Diary](diary/2023.md) 📔
+- [HTML](./HTML/README.md)
