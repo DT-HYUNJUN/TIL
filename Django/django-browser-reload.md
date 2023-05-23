@@ -62,3 +62,16 @@ MIDDLEWARE = [
   </ul>
 </div>
 </details>
+<br>
+
+5. static의 css 수정사항 바로 적용 방법
+
+  `django-browser-reload`는 `템플릿의 수정 사항`을 적용시킨다.
+
+  하지만 보통 css는 `static`에 저장해서 관리하는데, static 파일들은 `cache`에 저장되기에
+
+  위 방법으로는 css 수정 사항이 생길 때는 적용이 안된다.
+
+  그래서 이 때는 개발자 도구에서 `Network`탭의 `Disable cache`를 체크하면 될거 같다. (일단 테스트 할 때는 바로 적용이 됨)
+
+  ![disable_cache](./image/disable_cache.png)
