@@ -8,11 +8,12 @@ Django 프로젝트를 하면서, 템플릿을 수정할 때 마다 페이지를
 
 1. pip로 설치
 
+
 ```bash
 $ python -m pip install django-browser-reload
 ```
+[`pip install`이 아닌 `python -m pip install을 사용하는 이유`](../Python/pip.md)
 
-`pip install`이 아닌 `python -m pip install을 사용하는 이유`
 
 2. `INSTALLED_APPS`에 `django-browser-reload` 추가
 
