@@ -93,6 +93,7 @@ const multiplyThree = function (x, y, z) {
   return x * y * z
 }
 console.log(muliplyThree(3, 4, 5))
+
 // [Arguments] { '0': 3, '1': 4, '2': 5}
 // 60
 ```
