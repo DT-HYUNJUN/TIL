@@ -40,7 +40,7 @@ Number('123px') // NaN
 Number('px123') // NaN
 ```
 
-## Short Circuit Evaluation
+### Short Circuit Evaluation
 
 - && : 좌측이 true -> 우측 값 반환
 - && : 좌측이 false -> 좌측 값 반환
@@ -57,7 +57,7 @@ console.log(true && true && 'SCE')  // 'SCE'
 console.log(true && false && 'SCE') // false
 ```
 
-## null 병합 연산자 (??)
+### null 병합 연산자 (??)
 
 좌측이 `null` 또는 `undefined` -> 우측 값 반환
 
