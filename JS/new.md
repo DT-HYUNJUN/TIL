@@ -1,6 +1,6 @@
 # 새로 배운 것들
 
-프로젝트를 하면서 javascript를 익혔기에 이번 기회에 제대로 배워보고자 inflearn 코드팩토리 강의를 들으면서 새롭게 알게 된 내용을 정리해 보았다.
+프로젝트를 하면서 javascript를 익혔기에 이번 기회에 제대로 배워보고자 [inflearn 코드팩토리]("https://www.inflearn.com/course/%EC%BD%94%EB%93%9C%ED%8C%A9%ED%86%A0%EB%A6%AC-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%92%80%EC%BD%94%EC%8A%A4/dashboard") 강의를 들으면서 새롭게 알게 된 내용을 정리해 보았다.
 
 ## Operator
 
