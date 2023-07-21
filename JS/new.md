@@ -9,13 +9,13 @@
 피연산자 앞에 `+`를 붙이면 숫자로 변환을 시도한다.
 
 ```js
-console.log(typeof +'100', +'100') // number 100
+console.log(typeof +'100', +'100')      // number 100
 
-console.log(typeof +true, +true) // number 1
+console.log(typeof +true, +true)        // number 1
 
-console.log(typeof +false, +false) // number 0
+console.log(typeof +false, +false)      // number 0
 
-console.log(typeof +'hello', +'hello') // NaN
+console.log(typeof +'hello', +'hello')  // NaN
 ```
 
 ### parseInt() vs Number()
@@ -69,3 +69,49 @@ console.log('' ?? 'NCO')        // ''
 ```
 
 ## Function
+
+### 화살표 함수
+
+```js
+const arr = x => y => z => `x: ${x}, y: ${y}, z: ${z}`
+function arr2(x) {
+  return function(y) {
+    return function(z) {
+      return `x: ${x}, y: ${y}, z: ${z}`
+    }
+  }
+}
+console.log(arr(1)(2)(3))   // x: 1, y: 2, z: 3
+console.log(arr2(1)(2)(3))  // x: 1, y: 2, z: 3
+```
+
+### arguments
+
+```js
+const multiplyThree = function (x, y, z) {
+  console.log(arguments)
+  return x * y * z
+}
+console.log(muliplyThree(3, 4, 5))
+// [Arguments] { '0': 3, '1': 4, '2': 5}
+// 60
+```
+
+```js
+const multiplyAll = function (...arguments) {
+  return Object.values(arguments).reduce((a, b) => a * b, 1)
+}
+console.log(multiplyAll(1, 2, 3, 4, 5, 6)) // 120
+```
+
+### IIFE (Immediately Invoked Function Expression)
+
+함수를 정의함과 동시에 실행한다.
+
+```js
+(function (x, y) {
+  console.log(x * y)
+})(4, 5);
+
+// 20
+```
