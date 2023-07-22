@@ -4,9 +4,9 @@
 
 ## 📑 **Index**
 
-1. [Operator](#operator)
-2. [Function](#function)
-3. [Array](#array)
+1. [Operator](#📌-operator)
+2. [Function](#📌-function)
+3. [Array](#📌-array)
 
 ## 📌 **Operator**
 
