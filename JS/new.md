@@ -1,16 +1,16 @@
-# 새로 배운 것들
+# 📒**JS 노트**
 
 프로젝트를 하면서 javascript를 익혔기에 이번 기회에 제대로 배워보고자 [inflearn 코드팩토리](https://www.inflearn.com/course/%EC%BD%94%EB%93%9C%ED%8C%A9%ED%86%A0%EB%A6%AC-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%92%80%EC%BD%94%EC%8A%A4/dashboard) 강의를 들으면서 새롭게 알게 된 내용이나 중요한 내용들을 정리해 보았다.
 
-## Index
+## 📑**Index**
 
 1. [Operator](#operator)
 2. [Function](#function)
 3. [Array](#array)
 
-## Operator
+## 📌**Operator**
 
-### 단항 더하기 (+)
+### **단항 더하기 (+)**
 
 피연산자 앞에 `+`를 붙이면 숫자로 변환을 시도한다.
 
@@ -24,7 +24,7 @@ console.log(typeof +false, +false)      // number 0
 console.log(typeof +'hello', +'hello')  // NaN
 ```
 
-### parseInt() vs Number()
+### **parseInt() vs Number()**
 
 `parseInt()`와 `Number()`는 둘 다 문자열을 숫자로 변환해준다.
 
@@ -46,7 +46,7 @@ Number('123px') // NaN
 Number('px123') // NaN
 ```
 
-### Short Circuit Evaluation
+### **Short Circuit Evaluation**
 
 - && : 좌측이 true -> 우측 값 반환
 - && : 좌측이 false -> 좌측 값 반환
@@ -63,7 +63,7 @@ console.log(true && true && 'SCE')  // 'SCE'
 console.log(true && false && 'SCE') // false
 ```
 
-### null 병합 연산자 (??)
+### **null 병합 연산자 (??)**
 
 좌측이 `null` 또는 `undefined` -> 우측 값 반환
 
@@ -74,9 +74,9 @@ console.log(0 ?? 'NCO')         // 0
 console.log('' ?? 'NCO')        // ''
 ```
 
-## Function
+## 📌**Function**
 
-### 화살표 함수
+### **화살표 함수**
 
 ```js
 const arr = x => y => z => `x: ${x}, y: ${y}, z: ${z}`
@@ -91,7 +91,7 @@ console.log(arr(1)(2)(3))   // x: 1, y: 2, z: 3
 console.log(arr2(1)(2)(3))  // x: 1, y: 2, z: 3
 ```
 
-### arguments
+### **arguments**
 
 ```js
 const multiplyThree = function (x, y, z) {
@@ -111,7 +111,7 @@ const multiplyAll = function (...arguments) {
 console.log(multiplyAll(1, 2, 3, 4, 5, 6)) // 120
 ```
 
-### IIFE (Immediately Invoked Function Expression)
+### **IIFE (Immediately Invoked Function Expression)**
 
 함수를 정의함과 동시에 실행한다.
 
@@ -123,9 +123,9 @@ console.log(multiplyAll(1, 2, 3, 4, 5, 6)) // 120
 // 20
 ```
 
-## Array
+## 📌**Array**
 
-### concat(element)
+### **concat(element)**
 
 `push()`와 같이 배열 맨 끝 자리에 요소를 추가하지만, 기존 배열을 조작하지 않고 `새로운 배열`을 반환한다.
 
@@ -135,7 +135,7 @@ console.log(number.concat(6)) // [1, 2, 3, 4, 5, 6]
 console.log(nunber)           // [1, 2, 3, 4, 5]
 ```
 
-### slice(start, end)
+### **slice(start, end)**
 
 배열의 `start index`부터 `end-1 index` 까지 잘라서 `새로운 배열`을 반환한다.
 
@@ -145,7 +145,7 @@ console.log(number.slice(2, 4)) // [3, 4]
 console.log(nunber)             // [1, 2, 3, 4, 5]
 ```
 
-### spread operator (...)
+### **spread operator (...)**
 
 배열의 요소들을 추출할 때는 배열앞에 `...`를 붙여서 추출한다.
 
@@ -169,7 +169,7 @@ console.log(number2) // [1, 2, 3, 4, 5]
 console.log(number === number2) // false
 ```
 
-### sort()
+### **sort()**
 
 `sort()`는 배열의 요소들을 `유니코드를 기준`으로 오름차순으로 정렬한다. 원본 배열을 변경하며, 변경된 배열을 반환한다. 즉 `원본 배열 자체가 정렬`된다.
 
@@ -200,7 +200,7 @@ a, b를 비교할 때
 
 위 3가지 규칙을 따르기 때문이다.
 
-### map()
+### **map()**
 
 `map()`은 배열 내의 모든 요소에 대하여 주어진 함수를 각각 실행한 결과를 `새로운 배열`로 반환한다.
 
@@ -210,7 +210,7 @@ numberTimesTwo = number.map((x) => x * 2)
 console.log(numberTimesTwo) // [2, 4, 6, 8, 10]
 ```
 
-### filter()
+### **filter()**
 
 `filter()`매서드 주어진 함수의 결과가 `true면 포함`시키고, `false면 제외`시켜서 `새로운 배열`을 반환한다.
 
@@ -220,7 +220,7 @@ evenNumber = number.filter((x) => x % 2 == 0)
 console.log(evenNumber) // [2, 4, 6]
 ```
 
-### find()
+### **find()**
 
 `find()`는 `filter()`와 마찬가지로 주어진 함수의 결과가 `true인 첫 번째 요소`를 반환한다.
 
@@ -230,7 +230,7 @@ evenNumber = number.filter((x) => x % 2 == 0)
 console.log(evenNumber) // 2
 ```
 
-### reduce()
+### **reduce()**
 
 `reduce()` 매서드는 배열의 각 요소들에 대해 주어진 함수를 실행시킨 결과값을 반환한다.
 
