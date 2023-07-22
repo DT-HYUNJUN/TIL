@@ -1,6 +1,6 @@
 # 새로 배운 것들
 
-프로젝트를 하면서 javascript를 익혔기에 이번 기회에 제대로 배워보고자 [inflearn 코드팩토리](https://www.inflearn.com/course/%EC%BD%94%EB%93%9C%ED%8C%A9%ED%86%A0%EB%A6%AC-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%92%80%EC%BD%94%EC%8A%A4/dashboard) 강의를 들으면서 새롭게 알게 된 내용을 정리해 보았다.
+프로젝트를 하면서 javascript를 익혔기에 이번 기회에 제대로 배워보고자 [inflearn 코드팩토리](https://www.inflearn.com/course/%EC%BD%94%EB%93%9C%ED%8C%A9%ED%86%A0%EB%A6%AC-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%92%80%EC%BD%94%EC%8A%A4/dashboard) 강의를 들으면서 새롭게 알게 된 내용이나 중요한 내용들을 정리해 보았다.
 
 ## Operator
 
@@ -116,3 +116,142 @@ console.log(multiplyAll(1, 2, 3, 4, 5, 6)) // 120
 
 // 20
 ```
+
+## Array
+
+### concat(element)
+
+`push()`와 같이 배열 맨 끝 자리에 요소를 추가하지만, 기존 배열을 조작하지 않고 `새로운 배열`을 반환한다.
+
+```js
+number = [1, 2, 3, 4, 5]
+console.log(number.concat(6)) // [1, 2, 3, 4, 5, 6]
+console.log(nunber)           // [1, 2, 3, 4, 5]
+```
+
+### slice(start, end)
+
+배열의 `start index`부터 `end-1 index` 까지 잘라서 `새로운 배열`을 반환한다.
+
+```js
+number = [1, 2, 3, 4, 5]
+console.log(number.slice(2, 4)) // [3, 4]
+console.log(nunber)             // [1, 2, 3, 4, 5]
+```
+
+### spread operator (...)
+
+배열의 요소들을 추출할 때는 배열앞에 `...`를 붙여서 추출한다.
+
+```js
+number = [1, 2, 3, 4, 5]
+console.log(...number) // 1 2 3 4 5
+```
+
+`...`을 활용해서 새로운 배열을 만드는 것도 가능하다.
+
+```js
+number2 = [
+  ...number,
+]
+console.log(number2) // [1, 2, 3, 4, 5]
+```
+
+이 때, 새롭게 생성된 배열은 기존 배열과 다른 메모리 주소를 가진다.
+
+```js
+console.log(number === number2) // false
+```
+
+### sort()
+
+`sort()`는 배열의 요소들을 `유니코드를 기준`으로 오름차순으로 정렬한다. 원본 배열을 변경하며, 변경된 배열을 반환한다. 즉 `원본 배열 자체가 정렬`된다.
+
+유니코드를 기준으로 정렬되기 때문에 정수 배열을 sort()로 정렬하게 되면 원하는 결과를 얻지 못할 수 있다.
+
+```js
+number = [1, 10, 2, 8, 25]
+console.log(number.sort()) // [1, 10, 2, 25, 8]
+```
+
+따라서 숫자 배열을 오름차순으로 정렬하기 위해서는 `sort()`에 매개변수로 전달해야 한다.
+
+```js
+// 오름차순
+number.sort((a, b) => a - b)
+
+// 내림차순
+number.sort((a, b) => b - a)
+```
+
+이렇게 되는 이유는
+
+a, b를 비교할 때
+
+- a를 b보다 뒤에 두려면 양수를 반환
+- a를 b보다 앞에 두려면 음수를 반환
+- 그대로 두려면 0을 반환
+
+위 3가지 규칙을 따르기 때문이다.
+
+### map()
+
+`map()`은 배열 내의 모든 요소에 대하여 주어진 함수를 각각 실행한 결과를 `새로운 배열`로 반환한다.
+
+```js
+number = [1, 2, 3, 4, 5]
+numberTimesTwo = number.map((x) => x * 2)
+console.log(numberTimesTwo) // [2, 4, 6, 8, 10]
+```
+
+### filter()
+
+`filter()`매서드 주어진 함수의 결과가 `true면 포함`시키고, `false면 제외`시켜서 `새로운 배열`을 반환한다.
+
+```js
+number = [1, 2, 3, 4, 5, 6]
+evenNumber = number.filter((x) => x % 2 == 0)
+console.log(evenNumber) // [2, 4, 6]
+```
+
+### find()
+
+`find()`는 `filter()`와 마찬가지로 주어진 함수의 결과가 `true인 첫 번째 요소`를 반환한다.
+
+```js
+number = [1, 2, 3, 4, 5, 6]
+evenNumber = number.filter((x) => x % 2 == 0)
+console.log(evenNumber) // 2
+```
+
+### reduce()
+
+`reduce()` 매서드는 배열의 각 요소들에 대해 주어진 함수를 실행시킨 결과값을 반환한다.
+
+사용법은 아래와 같다.
+
+```js
+reduce(function, initialValue)
+```
+
+첫 번째 매개변수로는 `실행 할 함수`를, 두 번째 매개변수로는 `시작 값`을 넣는다.
+
+만약 배열의 합을 구하기 위해서는 아래와 같이 코드를 짤 수 있다.
+
+```js
+number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+number.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+```
+
+`이 때 첫 시작은 accumulator에 initialValue를 넣고 시작한다. (0 + 1 + 2 + ... + 10)`
+
+만약 initialValue에 1을 넣는다면 (1 + 1 + 2 + ... + 10) 처럼 작동하게 된다.
+
+또 다른 예시로 배열 모든 요소의 곱을 구하기 위해서는
+
+```js
+number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+number.reduce((accumulator, currentValue) => accumulator * currentValue, 1)
+```
+
+이 처럼 initialValue에 0이 아닌 1을 넣는다. 왜냐면 첫 시작에 accumulator에 initialValue가 들어가기에 0을 넣으면 (0 * 1 * 2 * ... * 10) 값이 0이 나오게 되기 때문이다.
