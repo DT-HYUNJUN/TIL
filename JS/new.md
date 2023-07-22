@@ -1,14 +1,14 @@
-# 📒**JS 노트**
+# 📒 **JS 노트**
 
 프로젝트를 하면서 javascript를 익혔기에 이번 기회에 제대로 배워보고자 [inflearn 코드팩토리](https://www.inflearn.com/course/%EC%BD%94%EB%93%9C%ED%8C%A9%ED%86%A0%EB%A6%AC-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%92%80%EC%BD%94%EC%8A%A4/dashboard) 강의를 들으면서 새롭게 알게 된 내용이나 중요한 내용들을 정리해 보았다.
 
-## 📑**Index**
+## 📑 **Index**
 
 1. [Operator](#operator)
 2. [Function](#function)
 3. [Array](#array)
 
-## 📌**Operator**
+## 📌 **Operator**
 
 ### **단항 더하기 (+)**
 
@@ -74,7 +74,7 @@ console.log(0 ?? 'NCO')         // 0
 console.log('' ?? 'NCO')        // ''
 ```
 
-## 📌**Function**
+## 📌 **Function**
 
 ### **화살표 함수**
 
@@ -123,7 +123,7 @@ console.log(multiplyAll(1, 2, 3, 4, 5, 6)) // 120
 // 20
 ```
 
-## 📌**Array**
+## 📌 **Array**
 
 ### **concat(element)**
 
