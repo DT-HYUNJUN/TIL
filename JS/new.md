@@ -261,4 +261,3 @@ number.reduce((accumulator, currentValue) => accumulator * currentValue, 1)
 ```
 
 이 처럼 initialValue에 0이 아닌 1을 넣는다. 왜냐면 첫 시작에 accumulator에 initialValue가 들어가기에 0을 넣으면 (0 * 1 * 2 * ... * 10) 값이 0이 나오게 되기 때문이다.
-
