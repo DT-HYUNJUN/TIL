@@ -19,3 +19,5 @@
 - [React](./React/)
 
 - [Javascript](./Javascript/)
+
+- [Typescript](./Typescript/)

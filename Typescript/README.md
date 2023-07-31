@@ -1,1 +1,3 @@
 # Typescript
+
+- [Basic](./basic.md)
