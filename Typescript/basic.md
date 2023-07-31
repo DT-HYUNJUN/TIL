@@ -244,3 +244,18 @@ let countryCodes: CountryCodes = {
 ```
 
 하지만 위 처럼 "key는 string 타입이고, value는 string타입이다" 라고 정의를 해두면 모든 속성에 다 적용이 된다.
+
+또 이때 반드시 포함해야 하는 속성이 있다면 직접 명시해도 된다.
+
+```ts
+type CountryCodes = {
+  [key: string]: string
+  Korea: string
+}
+
+let countryCodes: CountryCodes = {
+  Korea: 'ko'
+}
+```
+
+이 때 주의할 점은 인덱스 시그니처의 value와 직접 명시하는 속성의 value 타입이 서로 같아야 한다.
