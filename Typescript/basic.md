@@ -259,3 +259,78 @@ let countryCodes: CountryCodes = {
 ```
 
 이 때 주의할 점은 인덱스 시그니처의 value와 직접 명시하는 속성의 value 타입이 서로 같아야 한다.
+
+## **Enum**
+
+Enum은 여러가지 값들에 각각 이름을 부여해 열거해두고 사용하는 타입이다. (typescript에만 있는 타입)
+
+```ts
+enum Role {
+  ADMIN = 0,
+  USER = 1,
+  GUEST = 2,
+}
+
+const user = {
+  name: 'park',
+  role: Role.ADMIN
+}
+const user = {
+  name: 'kim',
+  role: Role.USER
+}
+const user = {
+  name: 'lee',
+  role: Role.GUEST
+}
+```
+
+혹은 enum에 값을 지정 안하면 0부터 차례대로 값이 들어간다.
+
+또 중간에 값을 지정하면 그 다음 부터는 값이 차례대로 들어간다.
+
+```ts
+enum Role {
+  ADMIN,  // 0
+  USER,   // 1
+  GUEST,  // 2
+}
+
+enum Role {
+  ADMIN,      // 0
+  USER = 10,  // 10
+  GUEST,      // 11
+}
+```
+
+## **Any / Unknown**
+
+### **Any**
+
+Any타입은 typescript에서만 제공되는 특별한 타입으로 타입 검사를 받지 않는 타입이다.
+
+그렇기에 any타입 변수에 어떠한 값을 넣어도 오류가 발생하지 않는다.
+
+```ts
+let anyVar: any = 10
+
+anyVar = 'hi'
+anyVar = true
+anyVar = {}
+anyVar = () => {}
+```
+
+타입 검사를 받지 않기에 문법과 규칙으로부터 자유롭지만 동시에 위험한 타입이다.
+
+### **Unknown**
+
+Unknown타입은 any타입과 비슷하지만 더 안전한 타입이다.
+
+```ts
+let unknownVar: unknown
+
+unknownVar = 10
+unknownVar = 'hi'
+unknownVar = {}
+unknownVar = () => {}
+```
