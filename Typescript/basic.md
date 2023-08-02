@@ -334,3 +334,37 @@ unknownVar = 'hi'
 unknownVar = {}
 unknownVar = () => {}
 ```
+
+## **Void / Never**
+
+### **Void**
+
+void는 아무것도 없음을 의미하는 타입이다.
+
+```ts
+function func1(): void {
+  console.log('hello')
+}
+```
+
+func1()은 'hello'를 출력하는 기능 외에 아무런 return을 하지 않는다.
+
+### **Never**
+
+never는 불가능한 타입을 의미한다.
+
+```ts
+function func2() {
+  while (true) {}
+}
+
+function func3() {
+  throw new Error()
+}
+```
+
+func2()는 무한 루프를 도는 함수다.
+
+무한 루프를 돌기 때문에 return을 할 수가 없기에 반환 타입에 never를 적어준다.
+
+func3()은 에러를 출력하는 함수이기에 프로그램이 종료된다. 그러기에 또한 return을 할 수 없어서 반환 타입에 never를 적어준다.
