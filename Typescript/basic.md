@@ -1,370 +1,354 @@
-# Typescript 기본
+# TS
 
-## 기본 타입
+## Type Tree
 
-### **number**
+Typescript 타입간의 계층 구조
+
+![Type-Tree](./type-tree.png)
+
+### **Unknown**
+
+unknown 타입은 최 상단에 위치한다.
+
+따라서 unknown 타입 변수에는 모든 타입의 값을 할당할 수 있다.
 
 ```ts
-let num1: number = 123 // type annotation 가장 기본적인 방법
-
-let num2: number = Infinity
-
-let num3: number = NaN
+let unknownVar: unknown
+unknownVar = 1
+unknownVar = 'hi'
+unknownVar = true
+unknownVar = {}
 ```
 
-### **string**
+### **Never**
+
+never 타입은 unknown과 반대로 최 하단에 위치한다.
+
+따라서 never 타입 변수는 모든 타입에 할당될 수 있다.
 
 ```ts
-let str1: string = "hello"
+function neverFunc() {
+  while (true) {}
+}
 
-let str2: string = `hello`
-
-let str3: string = `hello ${num1}`
+let num: number = neverFunc()
 ```
 
-### **boolean**
+### **Void**
+
+void 타입은 undefined의 슈퍼타입이기에 undefined 타입을 void 변수에 할당할 수 있다.
+
+또한 반환값이 void인 함수에 undefined 타입을 반환해도 된다.
 
 ```ts
-let bool1: boolean = true
-
-let bool2: boolean = false
+function voidFunc(): void {
+  console.log('hi')
+  return undefined // 또는 return만 써도 된다.
+}
 ```
 
-### **null**
+### **Any**
+
+any 타입은 타입 계층도를 완전히 무시하는 타입이다.
+
+모든 타입의 슈퍼타입이 될 수도 있고, 모든 타입의 서브타입이 될 수도 있다.
+
+하지만 공집합인 never 타입 변수에는 any를 할당할 수 없다.
+
+## 객체 타입의 호환성
 
 ```ts
-let null1: null = null
+type Animal = {
+  name: string
+  color: string
+}
+
+type Dog = {
+  name: string
+  color: string
+  breed: string
+}
+
+let animal: Animal = {
+  name: '기린',
+  color: 'yellow'
+}
+
+let dog: Dog = {
+  name: '댕댕이',
+  color: 'white',
+  breed: '진도'
+}
+
+animal = dog // O
+
+dog = animal // X
 ```
 
-만약 특정 변수의 값을 null로 임시값을 주고싶다면
+객체도 마찬가지로 업 캐스팅은 허용되지만 다운 캐스팅은 허용되지 않는다.
+
+Animal 타입이 슈퍼 타입이고 Dog 타입이 서브 타입이다.
+
+그 이유는 typescript는 property를 기준으로 타입을 정의하기 때문이다.
+
+Animal 타입은 name, color를 property로 갖는 객체를 포함하는 집합으로 볼 수 있고,
+
+Dog 타입은 name, color, breed를 property로 갖는 객체를 포함하는 집합으로 볼 수 있다.
+
+그러므로 Dog 타입에 포함되는 객체는 무조건 Animal 타입에도 포함되기 때문에 Animal 타입이 슈퍼타입이 된다.
+
+## 대수 타입
+
+대수 타입은 여러개의 타입을 합성해서 새롭게 만들어낸 타입이다.
+
+종류로는 합집합(Union) 타입과 교집합(Intersection) 타입이 존재한다.
+
+### 합집합
+
+Union 타입은 |를 이용한다.
 
 ```ts
-let numA: number = null
+let a: number | string
+
+a = 1
+a = 'Hi'
 ```
 
-아래와 같이 하면 된다고 생각하지만, typescript에서는 null도 타입의 일종이기 때문에, 에러가 발생한다.
+변수 a에는 number 또는 string 타입이 올 수 있다.
 
-따라서 위 처럼 하고싶다면 tsconfig.json을 수정하면 된다.
+배열 또한 Union 타입을 이용할 수 있다.
 
 ```ts
-// tsconfig.json
-{
-  "compilerOptions" : {
-    // ...
-    "strictNullChecks": false, // 추가
-    // ...
+let arr: (number | string | boolean)[] = [1, 'hi', true]
+```
+
+객체 타입의 Union 타입도 가능하다.
+
+```ts
+type Dog = {
+  name: string
+  color: string
+}
+
+type Person = {
+  name: string
+  language: string
+}
+
+type Union1 = Dog | Person
+
+let union1 = {
+  name: '',
+  color: ''
+}
+
+let union2 = {
+  name: '',
+  language: ''
+}
+
+let union3 = {
+  name: '',
+  color: '',
+  language: ''
+}
+
+// union4 같은 경우에는 불가능하다.
+let union4 = {
+  name: ''
+}
+```
+
+Union1 타입은 Dog 타입과 Person 타입의 합집합이다.
+
+그 말은, Dog 타입(name, color) 또는 Person 타입(name, language) 타입의 객체를 포함하는 타입이라는 말이다.
+
+union4 객체 같은 경우에는 property로 name만 있기 때문에 Union1 타입이 될 수 없다.
+
+### 교집합
+
+Intersection 타입은 &를 이용한다.
+
+```ts
+let inter: number & string // never
+```
+
+number 타입과 string 타입간에는 교집합이 없기에 never 타입으로 추론된다.
+
+기본 타입들 경우에는 겹치는 교집합이 없기 때문에 보통 객체에서 intersection 타입이 사용된다.
+
+```ts
+type Dog = {
+  name: string
+  color: string
+}
+
+type Person = {
+  name: string
+  language: string
+}
+
+type Intersection = Dog & Person
+
+let intersection: Intersection = {
+  name: '',
+  color: '',
+  language: ''
+}
+```
+
+Intersection 타입은 Dog 타입과 Person 타입을 모두 포함하고 있다.
+
+## 타입 추론
+
+typescript는 타입이 정의되어 있지 않은 변수의 타입을 자동으로 추론하는데, 이 기능을 타입 추론이라고 한다.
+
+```ts
+let num1 = 10
+```
+
+num1 변수의 타입을 정의하지 않았지만, 타입 추론으로 num1의 타입은 number가 된다.
+
+만약 초기값을 설정하지 않게되면 자동으로 any 타입으로 추론하게 된다.
+
+```ts
+let a
+
+a = 10
+a.toFixed()
+
+a = 'hi'
+a.toUpperCase()
+```
+
+변수 a에 초기값을 설정하지 않았으므로 자동으로 any타입으로 추론하게 되어 코드의 흐름에 따라 타입이 계속 변화한다.
+
+const로 선언된 상수도 타입 추론이 가능하다.
+
+```ts
+const num = 10 // 10 number literal
+```
+
+하지만 const 변수는 값을 변경할 수 없기에 리터럴 타입으로 추론된다.
+
+## 타입 단언
+
+```ts
+type Person = {
+  name: string
+  age: number
+}
+
+let person: Person = {}
+person.name = "park"
+person.age = 26
+```
+
+person 객체를 초기화 할 때 빈 객체를 넣어두고 싶다고 가정하고 싶어도 typescript는 허용하지 않는다. 빈 객체는 Person 타입이 아니기에 오류가 발생한다.
+
+이럴 때는 아래와 같이 빈 객체가 Person 타입이라고 단언해주면 된다.
+
+```ts
+type Person = {
+  name: string
+  age: number
+}
+
+let person = {} as Person
+person.name = "park"
+person.age = 26
+```
+
+"값 as 타입" 으로 원하는 타입으로 단언할 수 있다.
+
+초과 property에도 쓸 수 있다.
+
+```ts
+type Person = {
+  name: string
+  age: number
+}
+
+let person = {
+  name: 'park',
+  age: 26,
+  language: 'kor'
+} as Person
+```
+
+타입 추론에도 조건은 있다.
+
+A as B로 표현할 때
+
+1. A가 B의 슈퍼 타입
+2. A가 B의 서브 타입
+
+객체를 const로 단언하면 모든 property가 readonly를 갖는다.
+
+```ts
+let cat = {
+  name: 'kitty',
+  color: 'yellow'
+} as const
+```
+
+## 타입 좁히기
+
+매개변수로 number 또는 string을 받는 함수가 있다고 가정하자
+
+```ts
+function func(value: number | string) {
+
+}
+```
+
+number 일때는 toFixed()를, string 일때는 toUpperCase() 메서드를 사용하고 싶다면 if문을 사용해서 타입을 보장해야 한다.
+
+```ts
+function func(value: number | string) {
+  if (typeof value === 'number') {
+    console.log(value.toFixed())
+  } else if (typeof value === 'string') {
+    console.log(value.toUpperCase())
   }
 }
 ```
 
-### **undefined**
+### instanceof 타입가드
+
+instanceof를 이용하면 내장 클래스 타입을 보장할 수 있다.
 
 ```ts
-let undef1: undefined = undefined
+function func(value: number | string | Date | null) {
+  if (typeof value === 'number') {
+    console.log(value.toFixed())
+  } else if (typeof value === 'string') {
+    console.log(value.toUpperCase())
+  } else if (value instanceof Date) {
+    console.log(value.getTime())
+  }
+}
 ```
 
-### **literal**
+### in 타입가드
 
-리터럴 타입은 변수의 타입을 `값 그 자체`로 설정하는 방식이다.
-
-```ts
-let numA: 10 = 10
-
-let stringA: 'hi' = 'hi'
-
-let boolA: true = true
-```
-
-### **Array**
+만약 우리가 직접 만든 type과 함께 사용하기 위해서는 in 연산자를 사용하면 된다.
 
 ```ts
-let numArr: number[] = [1, 2, 3]
-
-let strArr: string[] = ['a', 'b', 'c']
-
-let boolArr: Array<boolean> = [true, false, true]
-```
-
-혹은 여러 배열에 요소들의 타입이 다양할 때는 `|`를 사용한다.
-
-```ts
-let multiArr: (number | string | boolean)[] = [1, 'hi', true]
-```
-
-다차원 배열의 경우 괄호를 연장해서 사용한다.
-
-```ts
-let doubleArr: number[][] = [
-  [1, 2, 3],
-  [4, 5, 6]
-]
-```
-
-### Tuple
-
-튜플은 길이와 타입이 정해진 배열이다.
-
-기존 javascript에는 없는 타입이지만 typescript에서는 배열을 사용한 타입으로 사용된다.
-
-```ts
-let tup1: [number, number] = [1, 2]
-
-let tup2: [number, string, boolean] = [1, 'hi', true]
-```
-
-앞서 말했듯이 길이가 고정되어 있다고 했지만, 배열을 사용하기에 `pop()`이나 `push()` 메소드의 사용을 막아주지는 못한다.
-
-보통 아래와 같이 배열의 순서를 지정할 때 쓰인다.
-
-```ts
-const users: [string, number][] = [
-  ['Park', 26],
-  ['Kim', 25],
-  ['Lee', 18],
-  ['Han', 24],
-]
-```
-
-### **Object**
-
-Typescript에서 객체는 이름을 기준으로 타입을 정의하지 않고, 객체의 구조를 기준으로 타입을 지정한다.
-
-```ts
-let user: {
-  id: number
+type Person = {
   name: string
-} = {
-  id: 1,
-  name: 'park'
+  age: number
+}
+
+function func(value: number | string | Date | null | Person) {
+  if (typeof value === 'number') {
+    console.log(value.toFixed())
+  } else if (typeof value === 'string') {
+    console.log(value.toUpperCase())
+  } else if (value instanceof Date) {
+    console.log(value.getTime())
+  } else if (value && "age" in value) {
+    console.log(value.name, value.age)
+  }
 }
 ```
-
-속성중 하나가 선택적 속성이라면, 속성 뒤에 `?`를 붙여준다.
-
-```ts
-let user: {
-  id?: number
-  name: string
-} = {
-  id: 1,
-  name: 'park'
-}
-
-user = {
-  name: 'kim'
-}
-```
-
-특정 속성의 값이 변경되는 것을 막기 위해서는 속성 앞에 `readonly` 키워드를 붙여준다.
-
-```ts
-let config: {
-  readonly apiKey: string
-} = {
-  apiKey: 'My Api Key'
-}
-```
-
-### **Type Alias**
-
-동일한 오브젝트를 여러개 만든다고 하면, 각 오브젝트의 타입들을 일일이 적어줘야 하는 번거로움이 생긴다.
-
-```ts
-let user: {
-  id: number
-  name: string
-  nickname: string
-  birth: string
-  bio: string
-  location: string
-} = {
-  id: 1,
-  name: 'park',
-  nickname: 'P',
-  birth: '1998-03-07',
-  bio: 'Hi',
-  location: '화성시'
-}
-```
-
-그렇기에 오브젝트의 타입을 따로 별칭으로 만들어 사용하면 더 편리해진다.
-
-```ts
-type User = {
-  id: number
-  name: string
-  nickname: string
-  birth: string
-  bio: string
-  location: string
-}
-
-let user: User = {
-  id: 1,
-  name: 'park',
-  nickname: 'P',
-  birth: '1998-03-07',
-  bio: 'Hi',
-  location: '화성시'
-}
-```
-
-type alias는 typescript에서 지원하는 기능으로, 실제 javascript로 변환 하면 type alias는 없어진 것을 확인할 수 있다.
-
-### Index Signature
-
-인덱스 시그니처는 type을 더 유연하게 사용할 수 있도록 해준다.
-
-```ts
-type CountryCodes = {
-  Korea: string
-  UnitedStates: string
-  UnitedKingdom: string
-}
-
-let countryCodes: CountryCodes = {
-  Korea: 'ko',
-  UnitedStates: 'us',
-  UnitedKingdom: 'uk'
-}
-```
-
-이런 코드가 있다고 할 때, 지금은 속성이 3개 뿐이지만, 만약 모든 나라를 다 적는다면 type에도 모든 나라에 대한 속성을 하나하나 다 적어야 한다.
-
-```ts
-type CountryCodes = {
-  [key: string]: string
-}
-
-let countryCodes: CountryCodes = {
-  Korea: 'ko',
-  UnitedStates: 'us',
-  UnitedKingdom: 'uk'
-}
-```
-
-하지만 위 처럼 "key는 string 타입이고, value는 string타입이다" 라고 정의를 해두면 모든 속성에 다 적용이 된다.
-
-또 이때 반드시 포함해야 하는 속성이 있다면 직접 명시해도 된다.
-
-```ts
-type CountryCodes = {
-  [key: string]: string
-  Korea: string
-}
-
-let countryCodes: CountryCodes = {
-  Korea: 'ko'
-}
-```
-
-이 때 주의할 점은 인덱스 시그니처의 value와 직접 명시하는 속성의 value 타입이 서로 같아야 한다.
-
-## **Enum**
-
-Enum은 여러가지 값들에 각각 이름을 부여해 열거해두고 사용하는 타입이다. (typescript에만 있는 타입)
-
-```ts
-enum Role {
-  ADMIN = 0,
-  USER = 1,
-  GUEST = 2,
-}
-
-const user = {
-  name: 'park',
-  role: Role.ADMIN
-}
-const user = {
-  name: 'kim',
-  role: Role.USER
-}
-const user = {
-  name: 'lee',
-  role: Role.GUEST
-}
-```
-
-혹은 enum에 값을 지정 안하면 0부터 차례대로 값이 들어간다.
-
-또 중간에 값을 지정하면 그 다음 부터는 값이 차례대로 들어간다.
-
-```ts
-enum Role {
-  ADMIN,  // 0
-  USER,   // 1
-  GUEST,  // 2
-}
-
-enum Role {
-  ADMIN,      // 0
-  USER = 10,  // 10
-  GUEST,      // 11
-}
-```
-
-## **Any / Unknown**
-
-### **Any**
-
-Any타입은 typescript에서만 제공되는 특별한 타입으로 타입 검사를 받지 않는 타입이다.
-
-그렇기에 any타입 변수에 어떠한 값을 넣어도 오류가 발생하지 않는다.
-
-```ts
-let anyVar: any = 10
-
-anyVar = 'hi'
-anyVar = true
-anyVar = {}
-anyVar = () => {}
-```
-
-타입 검사를 받지 않기에 문법과 규칙으로부터 자유롭지만 동시에 위험한 타입이다.
-
-### **Unknown**
-
-Unknown타입은 any타입과 비슷하지만 더 안전한 타입이다.
-
-```ts
-let unknownVar: unknown
-
-unknownVar = 10
-unknownVar = 'hi'
-unknownVar = {}
-unknownVar = () => {}
-```
-
-## **Void / Never**
-
-### **Void**
-
-void는 아무것도 없음을 의미하는 타입이다.
-
-```ts
-function func1(): void {
-  console.log('hello')
-}
-```
-
-func1()은 'hello'를 출력하는 기능 외에 아무런 return을 하지 않는다.
-
-### **Never**
-
-never는 불가능한 타입을 의미한다.
-
-```ts
-function func2() {
-  while (true) {}
-}
-
-function func3() {
-  throw new Error()
-}
-```
-
-func2()는 무한 루프를 도는 함수다.
-
-무한 루프를 돌기 때문에 return을 할 수가 없기에 반환 타입에 never를 적어준다.
-
-func3()은 에러를 출력하는 함수이기에 프로그램이 종료된다. 그러기에 또한 return을 할 수 없어서 반환 타입에 never를 적어준다.
