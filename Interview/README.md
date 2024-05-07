@@ -214,6 +214,18 @@ CORS(Cross-Origin Resource Shareing)는 출처가 다른 서버끼리 리소스�
 
 같은 출처인지, 다른 출처인지 확인하기 위해서는 URL에서 `프로토콜, 호스트, 포트`가 같은지 확인하면 된다. (ex. `https://www.myhost.com:8080`)
 
+### REST API
+
+REST API는 말 `REST 원칙 기반으로 만들어진 API`를 말한다.
+
+#### REST
+
+REST는 (REpresentational State Transfer)의 약자로 `자원`(웹에서 사용되는 모든 자료들)을 주고받는 웹 상의 통신체계의 `범용적인 스타일`을 규정한 아키텍쳐를 말한다.
+
+#### API
+
+API는 Application Programming Interface의 약자로 응용 프로그램을 통해서 데이터를 제공받거나 기능을 사용하고자 할 때 사용하는 인터페이스 및 규격 을 말한다.
+
 ## 기타/직무관련
 
 ### 1. FE 개발을 하면서 기억에 남는 화면
