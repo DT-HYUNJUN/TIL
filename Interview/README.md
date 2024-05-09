@@ -204,7 +204,7 @@ SSR은 서버에서 렌더링을 하는 방식이다.
 - #### undefined
   - undefined는 개발자가 의도적으로 할당한 값이 아니라 JS 엔진에 의해 초기화된 값을 말한다.
 
-### CORS
+### 7. CORS
 
 기본적으로 브라우저는 보안 정책인 **같은 출처에서만 리소스를 공유**하는 `SOP 정책`을 지키고 있다.
 
@@ -214,7 +214,7 @@ CORS(Cross-Origin Resource Shareing)는 출처가 다른 서버끼리 리소스�
 
 같은 출처인지, 다른 출처인지 확인하기 위해서는 URL에서 `프로토콜, 호스트, 포트`가 같은지 확인하면 된다. (ex. `https://www.myhost.com:8080`)
 
-### REST API
+### 8. REST API
 
 REST API는 말 `REST 원칙 기반으로 만들어진 API`를 말한다.
 
@@ -245,6 +245,14 @@ API는 Application Programming Interface의 약자로 응용 프로그램을 통
 4. `파일확장자`는 URL에 `포함하지 않는다`.
 
 5. `행위(CURD)`를 `포함하지 않는다`.
+
+### 9. Sass
+
+Sass는 stylesheets의 규모가 커지고 그 복잡성도 증가하면서 생기는 관리의 어려움을 돕고자 생긴 CSS 전처리기(Preprocessor)다.
+
+CSS가 만들어지기 전에 특정 일들을 하면서 처리해주는 작업을 Sass가 수행한다.
+
+또한 Sass는 기존 CSS에서는 없는 기능인 nesting, mixins, inheritance등 여러 기능을 가짐으로써 강력한 CSS를 만들 수 있게 도와준다.
 
 ## 기타/직무관련
 
